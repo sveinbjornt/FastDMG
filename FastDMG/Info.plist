@@ -4,8 +4,58 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ndif</string>
+				<string>img</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>NDIF Disk Image</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>dimg</string>
+				<string>hdro</string>
+				<string>rohd</string>
+				<string>hdcm</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>imgpart</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>NDIF Disk Image Segment</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>dseg</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>smi</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Self Mounting Image</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -13,7 +63,7 @@
 				<string>udif</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>dmg.icns</string>
+			<string>diskcopy-doc.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -23,9 +73,145 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>toast</string>
+				<string>dvdr</string>
+				<string>cdr</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>DVD/CD-R Master Image</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>GImg</string>
+				<string>PImg</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>dmgpart</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Disk Image Segment</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>devs</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>dc42</string>
+				<string>diskcopy42</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Disk Copy 4.2 Disk Image</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>dImg</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>dart</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>DART Disk Image</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>DMdf</string>
+				<string>DMd0</string>
+				<string>DMd1</string>
+				<string>DMd2</string>
+				<string>DMd3</string>
+				<string>DMd4</string>
+				<string>DMd5</string>
+				<string>DMd6</string>
+				<string>DMd7</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Raw Disk Image</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>devr</string>
+				<string>hdrv</string>
+				<string>DDim</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>PC Drive Container</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>OPCD</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>iso</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>ISO Disk Image</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>sparseimage</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Sparse Disk Image</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>sparsebundle</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>diskcopy-doc.icns</string>
+			<key>CFBundleTypeName</key>
+			<string>Sparse Disk Image Bundle</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+		</dict>
 	</array>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
 	<string>app</string>
 	<key>CFBundleIdentifier</key>
