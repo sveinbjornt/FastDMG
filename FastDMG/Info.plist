@@ -10,23 +10,18 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>dmg</string>
+				<string>udif</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>dmg</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>application/x-apple-diskimage</string>
-			</array>
+			<string>dmg.icns</string>
 			<key>CFBundleTypeName</key>
-			<string>Apple Disk Image</string>
+			<string>Disk Image</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>devi</string>
+			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.apple.disk-image</string>
-			</array>
-			<key>LSTypeIsPackage</key>
-			<integer>0</integer>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

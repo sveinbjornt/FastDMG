@@ -37,12 +37,13 @@
 {    
     BOOL hasReceivedOpenedFileMessage;
     BOOL inForeground;
+    BOOL numActiveTasks;
     
     FastDMGWindowController *windowController;
 }
 
 - (IBAction)showWindow:(id)sender;
-- (IBAction)openFile:(id)sender;
+- (IBAction)openFiles:(id)sender;
 
 @end
 
@@ -58,6 +59,11 @@
     if (!inForeground && [DEFAULTS boolForKey:@"RunInBackground"] == NO) {
         inForeground = [self transformToForeground];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(taskDone:)
+                                                 name:@"FastDMGTaskDoneNotification"
+                                               object:nil];
 }
 
 #pragma mark -
@@ -96,8 +102,6 @@
         [self showWindow:self];
         
         [NSApp activateIgnoringOtherApps:YES];
-    } else {
-        [[NSApplication sharedApplication] terminate:self];
     }
 }
 
@@ -111,13 +115,13 @@
 
 #pragma mark - Handle disk images
 
-- (IBAction)openFile:(id)sender {
+- (IBAction)openFiles:(id)sender {
     // Create open panel
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
     [oPanel setAllowsMultipleSelection:YES];
     [oPanel setCanChooseFiles:YES];
     [oPanel setCanChooseDirectories:NO];
-    //[oPanel setAllowedFileTypes:@"dmg"];
+    //[oPanel setAllowedFileTypes:@"dmg", @"com.apple.disk-image"];
 
     // Run it
     if ([oPanel runModal] == NSFileHandlingPanelOKButton) {
@@ -127,17 +131,19 @@
     }
 }
 
-- (BOOL)mountDiskImage:(NSString *)dmgPath {
+- (void)mountDiskImage:(NSString *)dmgPath {
     
 //    // Make sure it's a dmg
-//    if ([self isDMG:filename] == NO) {
+//    if ([self isDMGFile:dmgPath] == NO) {
 //        NSBeep();
-//        return NO;
+//        return;
 //    }
 
+    numActiveTasks += 1;
+    
     // Set task off in another thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{ @autoreleasepool {
-
+        
         NSTask *task = [[NSTask alloc] init];
         task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
         
@@ -156,9 +162,10 @@
         task.standardInput = inputPipe;
         
         // STDOUT
-        NSPipe *outputPipe = [NSPipe pipe];
-        task.standardOutput = outputPipe;
-        NSFileHandle *outputHandle = [outputPipe fileHandleForReading];
+        task.standardOutput = [NSFileHandle fileHandleWithNullDevice];
+//        NSPipe *outputPipe = [NSPipe pipe];
+//        task.standardOutput = outputPipe;
+//        NSFileHandle *outputHandle = [outputPipe fileHandleForReading];
         
         // STDERR
         task.standardError = [NSFileHandle fileHandleWithNullDevice];
@@ -189,59 +196,32 @@
         //    }
         //
         //    NSLog(@"Termination status: %d", task.terminationStatus);
-
-        // Notify on main thread if mounting failed
-        if (task.terminationStatus != 0) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+        
+        // Notify on main thread that task is done
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (task.terminationStatus != 0) {
                 [self handleFailure:dmgPath];
-            });
-        }
-
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FastDMGTaskDoneNotification" object:dmgPath];
+        });
+        
     }});
-
-    return YES;
 }
 
-- (BOOL)isDMG:(NSString *)filePath {
-    // Check suffix
-//    if ([filePath hasSuffix:@".dmg"]) {
-//        return YES;
-//    }
-
-    // Check Unform Type Identifier
-    NSString *fileType = [[NSWorkspace sharedWorkspace] typeOfFile:filePath error:nil];
-    if ([[NSWorkspace sharedWorkspace] type:fileType conformsToType:@"com.apple.disk-image"]) {
-        return YES;
+- (void)taskDone:(id)obj {
+    numActiveTasks -= 1;
+    if (numActiveTasks == 0 && windowController == nil && [DEFAULTS boolForKey:@"QuitAfterMounting"]) {
+        [[NSApplication sharedApplication] terminate:self];
     }
-    
-    // There is no single DMG file format. DMGs come in a variety of sub-formats, corresponding
-    // to the different tools which create them, and their compression schemes. The common
-    // denominator of most of these is the existence of a 512-byte trailer at the end of the file.
-    // This trailer is identifiable by a magic 32-bit value, 0x6B6F6C79, which is "koly" in ASCII.
-    NSError *error;
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:filePath]
-                                         options:NSDataReadingMappedAlways
-                                           error:&error];
-    if ([data length] < 512) {
-        return NO;
-    }
-    
-    // Read last 512 bytes
-    NSUInteger length = [data length];
-    
-    NSData *trailerData = [data subdataWithRange:NSMakeRange(length-512, 4)];
-    char magic[] = { 'k', 'o', 'l', 'y' };
-    NSData *dmgTrailerData = [NSData dataWithBytes:&magic length:4];
-    
-    return [trailerData isEqualToData:dmgTrailerData];
 }
 
 - (void)handleFailure:(NSString *)filePath {
     NSBeep();
+    [NSApp activateIgnoringOtherApps:YES];
     
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Try DiskImageMounter"];
-    [alert addButtonWithTitle:@"Quit"];
+    [alert addButtonWithTitle:@"Cancel"];
     [alert setAlertStyle:NSWarningAlertStyle];
     [alert setMessageText:@"Unable to mount disk image"];
     
@@ -249,13 +229,43 @@
 the disk image “%@”. Would you like to try using Apple's DiskImageMounter?", [filePath lastPathComponent]];
     [alert setInformativeText:msg];
 
-    
-    if ([alert runModal] != NSAlertFirstButtonReturn) {
-        // Try with Apple's DiskImageMounter
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
         [[NSWorkspace sharedWorkspace] openFile:filePath withApplication:@"DiskImageMounter"];
     }
-    
-    //[[NSApplication sharedApplication] terminate:self];
 }
+
+//- (BOOL)isDMGFile:(NSString *)filePath {
+//    // Check suffix
+////    if ([filePath hasSuffix:@".dmg"]) {
+////        return YES;
+////    }
+//
+//    // Check Unform Type Identifier
+//    NSString *fileType = [[NSWorkspace sharedWorkspace] typeOfFile:filePath error:nil];
+//    if ([[NSWorkspace sharedWorkspace] type:fileType conformsToType:@"com.apple.disk-image"]) {
+//        return YES;
+//    }
+//
+//    // There is no single DMG file format. DMGs come in a variety of sub-formats, corresponding
+//    // to the different tools which create them, and their compression schemes. The common
+//    // denominator of most of these is the existence of a 512-byte trailer at the end of the file.
+//    // This trailer is identifiable by a magic 32-bit value, 0x6B6F6C79, which is "koly" in ASCII.
+//    NSError *error;
+//    NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:filePath]
+//                                         options:NSDataReadingMappedAlways
+//                                           error:&error];
+//    if ([data length] < 512) {
+//        return NO;
+//    }
+//
+//    // Read header of trailing 512 bytes
+//    NSUInteger length = [data length];
+//
+//    NSData *trailerData = [data subdataWithRange:NSMakeRange(length-512, 4)];
+//    char magic[] = { 'k', 'o', 'l', 'y' };
+//    NSData *dmgTrailerData = [NSData dataWithBytes:&magic length:4];
+//
+//    return [trailerData isEqualToData:dmgTrailerData];
+//}
 
 @end

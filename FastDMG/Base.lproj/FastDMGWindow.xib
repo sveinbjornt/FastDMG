@@ -19,83 +19,29 @@
         <window title="FastDMG" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="vwb-oI-JjD">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
-            <rect key="contentRect" x="131" y="159" width="299" height="435"/>
+            <rect key="contentRect" x="131" y="159" width="300" height="420"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="kaP-bY-zeb">
-                <rect key="frame" x="0.0" y="0.0" width="299" height="435"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="4bH-kc-MMg">
-                        <rect key="frame" x="17" y="57" width="265" height="146"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <view key="contentView" ambiguous="YES" id="zzB-80-YA7">
-                            <rect key="frame" x="2" y="2" width="261" height="142"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96c-1i-P6h">
-                                    <rect key="frame" x="36" y="100" width="185" height="18"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="check" title="Run in background" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3CI-A2-7jH">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <binding destination="0Np-7J-JZb" name="value" keyPath="values.RunInBackground" id="Agy-0z-QgY"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUj-ir-T64">
-                                    <rect key="frame" x="36" y="49" width="185" height="18"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="check" title="Quit after mounting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="a0F-1r-2PM">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <binding destination="0Np-7J-JZb" name="value" keyPath="values.QuitAfterMounting" id="wIT-zG-v0C"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g19-ZV-Jaf">
-                                    <rect key="frame" x="36" y="75" width="188" height="18"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="check" title="Open image after mounting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="M7U-yv-Tc3">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <binding destination="0Np-7J-JZb" name="value" keyPath="values.OpenDiskImage" id="n7w-A5-SzZ"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEy-8X-uwF">
-                                    <rect key="frame" x="36" y="23" width="185" height="18"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="check" title="Verify disk image" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vhq-sP-FmS">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <binding destination="0Np-7J-JZb" name="value" keyPath="values.VerifyDiskImage" id="aCc-Cx-EFp"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </view>
-                    </box>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Nz-Rk-TJR">
-                        <rect key="frame" x="117" y="351" width="64" height="64"/>
+                        <rect key="frame" x="118" y="336" width="64" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="app" id="O0O-O9-e95"/>
                     </imageView>
                     <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9id-1a-TRw">
-                        <rect key="frame" x="20" y="209" width="259" height="109"/>
+                        <rect key="frame" x="20" y="186" width="260" height="117"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="3ry-2M-avh">
-                            <rect key="frame" x="0.0" y="0.0" width="259" height="109"/>
+                            <rect key="frame" x="0.0" y="0.0" width="260" height="117"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView ambiguous="YES" editable="NO" drawsBackground="NO" importsGraphics="NO" horizontallyResizable="YES" verticallyResizable="NO" findStyle="panel" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="eHf-he-xgf">
-                                    <rect key="frame" x="0.0" y="0.0" width="259" height="109"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="260" height="117"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="259" height="109"/>
+                                    <size key="minSize" width="260" height="117"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </textView>
@@ -112,7 +58,7 @@
                         </scroller>
                     </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7m-nG-4em">
-                        <rect key="frame" x="18" y="326" width="263" height="17"/>
+                        <rect key="frame" x="18" y="311" width="264" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Version X.X" id="DyA-nx-uBV">
                             <font key="font" metaFont="smallSystem"/>
@@ -121,7 +67,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8t-W6-M6F">
-                        <rect key="frame" x="97" y="13" width="104" height="32"/>
+                        <rect key="frame" x="98" y="13" width="104" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ebx-xV-Sy8">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -131,12 +77,55 @@
                             <action selector="terminate:" target="-1" id="Y5a-rM-77G"/>
                         </connections>
                     </button>
+                    <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="4bH-kc-MMg">
+                        <rect key="frame" x="17" y="57" width="266" height="123"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" ambiguous="YES" id="zzB-80-YA7">
+                            <rect key="frame" x="2" y="2" width="262" height="119"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button toolTip="Don't show this app in the Dock" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96c-1i-P6h">
+                                    <rect key="frame" x="36" y="77" width="185" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Run in background" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="3CI-A2-7jH">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <binding destination="0Np-7J-JZb" name="value" keyPath="values.RunInBackground" id="Agy-0z-QgY"/>
+                                    </connections>
+                                </button>
+                                <button toolTip="Quit immediately once all disk images have been mounted." verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nUj-ir-T64">
+                                    <rect key="frame" x="36" y="26" width="185" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Quit after mounting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="a0F-1r-2PM">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <binding destination="0Np-7J-JZb" name="value" keyPath="values.QuitAfterMounting" id="wIT-zG-v0C"/>
+                                    </connections>
+                                </button>
+                                <button toolTip="Show disk image contents in Finder after mounting " verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g19-ZV-Jaf">
+                                    <rect key="frame" x="36" y="52" width="188" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Open image after mounting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="M7U-yv-Tc3">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <binding destination="0Np-7J-JZb" name="value" keyPath="values.OpenDiskImage" id="n7w-A5-SzZ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                    </box>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="Vug-Ng-4ss"/>
             </connections>
-            <point key="canvasLocation" x="-414.5" y="193.5"/>
+            <point key="canvasLocation" x="-476" y="96"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="0Np-7J-JZb"/>
     </objects>

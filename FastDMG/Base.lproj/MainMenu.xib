@@ -67,7 +67,11 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9"/>
+                            <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
+                                <connections>
+                                    <action selector="openFiles:" target="Voe-Tx-rLC" id="Xj6-P0-fFG"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                             <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
@@ -160,7 +164,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="42" y="-13"/>
+            <point key="canvasLocation" x="-140" y="-26"/>
         </menu>
     </objects>
 </document>
