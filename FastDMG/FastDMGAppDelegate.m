@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2018, Sveinbjorn Thordarson <sveinbjorn@sveinbjorn.org>
+ Copyright (c) 2012-2018, Sveinbjorn Thordarson <sveinbjorn@sveinbjorn.org>
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification,
@@ -29,16 +29,21 @@
 */
 
 #import "FastDMGAppDelegate.h"
-#import <Carbon/Carbon.h>
+#import "FastDMGWindowController.h"
 
 #define DEFAULTS [NSUserDefaults standardUserDefaults]
 
 @interface FastDMGAppDelegate ()
-{
-    IBOutlet NSWindow *prefsWindow;
-    BOOL hasOpenedFile;
+{    
+    BOOL hasReceivedOpenedFileMessage;
     BOOL inForeground;
+    
+    FastDMGWindowController *windowController;
 }
+
+- (IBAction)showWindow:(id)sender;
+- (IBAction)openFile:(id)sender;
+
 @end
 
 @implementation FastDMGAppDelegate
@@ -50,128 +55,160 @@
 }
 
 - (void)awakeFromNib {
-    NSLog(@"Awake from nib");
-    if ([DEFAULTS boolForKey:@"RunInBackground"] == NO) {
+    if (!inForeground && [DEFAULTS boolForKey:@"RunInBackground"] == NO) {
         inForeground = [self transformToForeground];
     }
 }
 
+#pragma mark -
+
 - (BOOL)transformToForeground {
     ProcessSerialNumber psn = { 0, kCurrentProcess };
+    
     OSStatus ret = TransformProcessType(&psn, kProcessTransformToForegroundApplication);
     if (ret != noErr) {
-        NSLog(@"Failed to transform application to foreground state");
+        NSLog(@"Failed to transform application to foreground state: %d", ret);
         return NO;
     }
     
     return YES;
 }
 
-- (void)activate {
-//    ProcessSerialNumber psn = { 0, kCurrentProcess };
-//    SetFrontProcess(&psn);
-    [NSApp activateIgnoringOtherApps:YES];
+- (IBAction)showWindow:(id)sender {
+    // Load window lazily
+    if (windowController == nil) {
+        windowController = [[FastDMGWindowController alloc] initWithWindowNibName:@"FastDMGWindow"];
+    }
+    [windowController showWindow:self];
 }
 
 #pragma mark - NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // We only become a foreground application if the
-    // application wasn't launched via opening a file
-    if (hasOpenedFile == NO) {
+    // application wasn't launched via opening a file.
+    // In that case, we show Settings window
+    if (hasReceivedOpenedFileMessage == NO) {
         if (!inForeground) {
-            [self transformToForeground];
+            inForeground = [self transformToForeground];
         }
-        [self activate];
-        [prefsWindow makeKeyAndOrderFront:self];
+        
+        [self showWindow:self];
+        
+        [NSApp activateIgnoringOtherApps:YES];
     } else {
         [[NSApplication sharedApplication] terminate:self];
     }
 }
 
-- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
-    hasOpenedFile = YES;
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filePath {
+    
+    hasReceivedOpenedFileMessage = YES;
+    [self mountDiskImage:filePath];
+    
+    return YES;
+}
 
+#pragma mark - Handle disk images
+
+- (IBAction)openFile:(id)sender {
+    // Create open panel
+    NSOpenPanel *oPanel = [NSOpenPanel openPanel];
+    [oPanel setAllowsMultipleSelection:YES];
+    [oPanel setCanChooseFiles:YES];
+    [oPanel setCanChooseDirectories:NO];
+    //[oPanel setAllowedFileTypes:@"dmg"];
+
+    // Run it
+    if ([oPanel runModal] == NSFileHandlingPanelOKButton) {
+        for (NSURL *url in [oPanel URLs]) {
+            [self mountDiskImage:[url path]];
+        }
+    }
+}
+
+- (BOOL)mountDiskImage:(NSString *)dmgPath {
+    
 //    // Make sure it's a dmg
 //    if ([self isDMG:filename] == NO) {
 //        NSBeep();
 //        return NO;
 //    }
-    
-    [[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:filename]];
-    
-    if ([self attachDiskImage:filename] == NO) {
-        NSBeep();
-        return NO;
-    };
-    
+
+    // Set task off in another thread
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{ @autoreleasepool {
+
+        NSTask *task = [[NSTask alloc] init];
+        task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
+        
+        NSMutableArray *args = [@[@"attach", dmgPath, @"-plist"] mutableCopy];
+        if ([DEFAULTS boolForKey:@"OpenDiskImage"]) {
+            [args addObject:@"-autoopen"];
+        }
+        if ([DEFAULTS boolForKey:@"VerifyDiskImage"] == NO) {
+            [args addObject:@"-noverify"];
+        }
+        task.arguments = args;
+        
+        // STDIN
+        NSPipe *inputPipe = [NSPipe pipe];
+        NSFileHandle *inputHandle = [inputPipe fileHandleForWriting];
+        task.standardInput = inputPipe;
+        
+        // STDOUT
+        NSPipe *outputPipe = [NSPipe pipe];
+        task.standardOutput = outputPipe;
+        NSFileHandle *outputHandle = [outputPipe fileHandleForReading];
+        
+        // STDERR
+        task.standardError = [NSFileHandle fileHandleWithNullDevice];
+        
+        // Auto-accept EULAs by feeding 'Y' into STDIN
+        [inputHandle writeData:[@"Y\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        // Launch
+        [task launch];
+        [inputHandle closeFile];
+        [task waitUntilExit];
+        
+        //    NSData *outputData = [outputHandle readDataToEndOfFile];
+        //    NSString *outputStr = [[NSString alloc] initWithData:outputData
+        //                                                encoding:NSUTF8StringEncoding];
+        //    NSLog(@"Output: %@", outputStr);
+        //
+        //    NSString *error;
+        //    NSPropertyListFormat format;
+        //    NSDictionary *plist = [NSPropertyListSerialization propertyListWithData:outputData
+        //                                                                    options:NSPropertyListImmutable
+        //                                                                     format:&format
+        //                                                                      error:&error];
+        //
+        //    if (!plist) {
+        //        NSLog(@"Error: %@",error);
+        //        return NO;
+        //    }
+        //
+        //    NSLog(@"Termination status: %d", task.terminationStatus);
+
+        // Notify on main thread if mounting failed
+        if (task.terminationStatus != 0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self handleFailure:dmgPath];
+            });
+        }
+
+    }});
+
     return YES;
-}
-
-#pragma mark -
-
-- (BOOL)attachDiskImage:(NSString *)dmgPath {
-
-    NSTask *task = [[NSTask alloc] init];
-    task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
-
-    NSMutableArray *args = [@[@"attach", dmgPath, @"-plist"] mutableCopy];
-    if ([DEFAULTS boolForKey:@"OpenDiskImage"]) {
-        [args addObject:@"-autoopen"];
-    }
-    if ([DEFAULTS boolForKey:@"VerifyDiskImage"] == NO) {
-        [args addObject:@"-noverify"];
-    }
-    task.arguments = args;
-    
-    // STDIN
-    NSPipe *inputPipe = [NSPipe pipe];
-    NSFileHandle *inputHandle = [inputPipe fileHandleForWriting];
-    task.standardInput = inputPipe;
-    
-    // STDOUT
-    NSPipe *outputPipe = [NSPipe pipe];
-    task.standardOutput = outputPipe;
-    NSFileHandle *outputHandle = [outputPipe fileHandleForReading];
-    
-    // STDERR
-    task.standardError = [NSFileHandle fileHandleWithNullDevice];
-    
-    // Auto-accept EULAs by feeding 'Y' into STDIN
-    [inputHandle writeData:[@"Y\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    // Launch
-    [task launch];
-    [inputHandle closeFile];
-    [task waitUntilExit];
-    
-    NSData *outputData = [outputHandle readDataToEndOfFile];
-//    NSString *outputStr = [[NSString alloc] initWithData:outputData
-//                                                encoding:NSUTF8StringEncoding];
-//    NSLog(@"Output: %@", outputStr);
-//
-//    NSString *error;
-//    NSPropertyListFormat format;
-//    NSDictionary *plist = [NSPropertyListSerialization propertyListWithData:outputData
-//                                                                    options:NSPropertyListImmutable
-//                                                                     format:&format
-//                                                                      error:&error];
-//
-//    if (!plist) {
-//        NSLog(@"Error: %@",error);
-//        return NO;
-//    }
-//    NSLog(@"Termination status: %d", task.terminationStatus);
-    return (task.terminationStatus == 0);
 }
 
 - (BOOL)isDMG:(NSString *)filePath {
     // Check suffix
-    if ([filePath hasSuffix:@".dmg"]) {
-        return YES;
-    }
+//    if ([filePath hasSuffix:@".dmg"]) {
+//        return YES;
+//    }
 
-    // Check UTI
+    // Check Unform Type Identifier
     NSString *fileType = [[NSWorkspace sharedWorkspace] typeOfFile:filePath error:nil];
     if ([[NSWorkspace sharedWorkspace] type:fileType conformsToType:@"com.apple.disk-image"]) {
         return YES;
@@ -197,6 +234,28 @@
     NSData *dmgTrailerData = [NSData dataWithBytes:&magic length:4];
     
     return [trailerData isEqualToData:dmgTrailerData];
+}
+
+- (void)handleFailure:(NSString *)filePath {
+    NSBeep();
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Try DiskImageMounter"];
+    [alert addButtonWithTitle:@"Quit"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert setMessageText:@"Unable to mount disk image"];
+    
+    NSString *msg = [NSString stringWithFormat:@"FastDMG failed to mount \
+the disk image “%@”. Would you like to try using Apple's DiskImageMounter?", [filePath lastPathComponent]];
+    [alert setInformativeText:msg];
+
+    
+    if ([alert runModal] != NSAlertFirstButtonReturn) {
+        // Try with Apple's DiskImageMounter
+        [[NSWorkspace sharedWorkspace] openFile:filePath withApplication:@"DiskImageMounter"];
+    }
+    
+    //[[NSApplication sharedApplication] terminate:self];
 }
 
 @end

@@ -30,7 +30,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface FastDMGAppDelegate : NSObject <NSApplicationDelegate>
+@interface FastDMGWindowController : NSWindowController <NSWindowDelegate>
 
 @end
-

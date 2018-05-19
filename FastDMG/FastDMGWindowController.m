@@ -28,9 +28,30 @@
  POSSIBILITY OF SUCH DAMAGE.
 */
 
-#import <Cocoa/Cocoa.h>
+#import "FastDMGWindowController.h"
 
-@interface FastDMGAppDelegate : NSObject <NSApplicationDelegate>
-
+@interface FastDMGWindowController ()
+{
+    IBOutlet NSTextView *aboutTextView;
+    IBOutlet NSTextField *versionTextField;
+}
 @end
 
+@implementation FastDMGWindowController
+
+- (void)windowDidLoad {
+    [super windowDidLoad];
+
+    // Populate controls
+    NSString *rtfFilePath = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
+    [aboutTextView readRTFDFromFile:rtfFilePath];
+
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [versionTextField setStringValue:[NSString stringWithFormat:@"Version %@", version]];
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    [[NSApplication sharedApplication] terminate:self];
+}
+
+@end

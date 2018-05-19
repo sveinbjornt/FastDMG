@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F42C834120AF048700E95DD4 /* FastDMGWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42C833F20AF048700E95DD4 /* FastDMGWindow.xib */; };
+		F42C834420AF05A800E95DD4 /* FastDMGWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */; };
 		F45AC0FD20ACDB4E0086DF1D /* FastDMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC0FC20ACDB4E0086DF1D /* FastDMGAppDelegate.m */; };
 		F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10020ACDB4F0086DF1D /* MainMenu.xib */; };
 		F45AC10520ACDB4F0086DF1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC10420ACDB4F0086DF1D /* main.m */; };
@@ -17,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F42C834020AF048700E95DD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FastDMGWindow.xib; sourceTree = "<group>"; };
+		F42C834220AF05A800E95DD4 /* FastDMGWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastDMGWindowController.h; sourceTree = "<group>"; };
+		F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastDMGWindowController.m; sourceTree = "<group>"; };
 		F45AC0F820ACDB4E0086DF1D /* FastDMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45AC0FB20ACDB4E0086DF1D /* FastDMGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastDMGAppDelegate.h; sourceTree = "<group>"; };
 		F45AC0FC20ACDB4E0086DF1D /* FastDMGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastDMGAppDelegate.m; sourceTree = "<group>"; };
@@ -27,8 +32,9 @@
 		F49A990D20ADC55C0064B9A4 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		F49A991020ADD6470064B9A4 /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = app.icns; sourceTree = "<group>"; };
 		F49A991720ADD90F0064B9A4 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		F49A991920ADD9220064B9A4 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = FastDMG/LICENSE.txt; sourceTree = "<group>"; };
-		F49A991A20ADD9220064B9A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = FastDMG/README.md; sourceTree = "<group>"; };
+		F49A991B20ADEAC30064B9A4 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		F49A991C20ADEAC30064B9A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F49A991D20AE4F5E0064B9A4 /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +51,9 @@
 		F45AC0EF20ACDB4D0086DF1D = {
 			isa = PBXGroup;
 			children = (
-				F49A991920ADD9220064B9A4 /* LICENSE.txt */,
-				F49A991A20ADD9220064B9A4 /* README.md */,
+				F49A991B20ADEAC30064B9A4 /* LICENSE.txt */,
+				F49A991D20AE4F5E0064B9A4 /* TODO.txt */,
+				F49A991C20ADEAC30064B9A4 /* README.md */,
 				F45AC0FA20ACDB4E0086DF1D /* FastDMG */,
 				F45AC0F920ACDB4E0086DF1D /* Products */,
 			);
@@ -66,7 +73,10 @@
 				F45AC10420ACDB4F0086DF1D /* main.m */,
 				F45AC0FB20ACDB4E0086DF1D /* FastDMGAppDelegate.h */,
 				F45AC0FC20ACDB4E0086DF1D /* FastDMGAppDelegate.m */,
+				F42C834220AF05A800E95DD4 /* FastDMGWindowController.h */,
+				F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */,
 				F45AC10020ACDB4F0086DF1D /* MainMenu.xib */,
+				F42C833F20AF048700E95DD4 /* FastDMGWindow.xib */,
 				F49A991720ADD90F0064B9A4 /* Credits.rtf */,
 				F45AC10320ACDB4F0086DF1D /* Info.plist */,
 				F49A990D20ADC55C0064B9A4 /* Defaults.plist */,
@@ -134,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42C834120AF048700E95DD4 /* FastDMGWindow.xib in Resources */,
 				F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */,
 				F49A991120ADD6470064B9A4 /* app.icns in Resources */,
 				F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */,
@@ -168,12 +179,21 @@
 			files = (
 				F45AC10520ACDB4F0086DF1D /* main.m in Sources */,
 				F45AC0FD20ACDB4E0086DF1D /* FastDMGAppDelegate.m in Sources */,
+				F42C834420AF05A800E95DD4 /* FastDMGWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F42C833F20AF048700E95DD4 /* FastDMGWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F42C834020AF048700E95DD4 /* Base */,
+			);
+			name = FastDMGWindow.xib;
+			sourceTree = "<group>";
+		};
 		F45AC10020ACDB4F0086DF1D /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -221,8 +241,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -276,11 +296,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_TESTABILITY = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -298,10 +319,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5WX26Y89JP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FastDMG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -318,10 +339,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5WX26Y89JP;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FastDMG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

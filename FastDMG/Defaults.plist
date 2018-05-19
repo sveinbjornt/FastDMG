@@ -6,5 +6,9 @@
 	<true/>
 	<key>OpenDiskImage</key>
 	<true/>
+	<key>VerifyDiskImage</key>
+	<false/>
+	<key>QuitAfterMounting</key>
+	<true/>
 </dict>
 </plist>

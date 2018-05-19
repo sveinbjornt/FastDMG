@@ -1,0 +1,4 @@
+
+* Silence all warnings etc.
+* Handle verification
+* Make multi-threaded
