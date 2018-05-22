@@ -42,7 +42,6 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
 
-    // Populate controls
     NSString *rtfFilePath = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
     [aboutTextView readRTFDFromFile:rtfFilePath];
 

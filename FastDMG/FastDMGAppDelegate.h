@@ -33,4 +33,3 @@
 @interface FastDMGAppDelegate : NSObject <NSApplicationDelegate>
 
 @end
-
