@@ -2,24 +2,20 @@
 
 <img src="fastdmg_icon.png" width="128" height="128" align="right" style="float: right; margin-left: 30px;">
 
-FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a fast and reliable replacement for Apple's [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
+FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
 
-** STILL PREPARING RELEASE **
+* **[Download FastDMG 1.0](https://sveinbjorn.org/files/software/FastDMG.zip)** (~2.0 MB, Intel 64-bit, 10.8 or later)
 
 ## Features
 
 * Doesn't waste your precious time verifying disk images
 * Auto-accepts annoying end user license agreements
 * Runs in the background (doesn't show up in the Dock)
-* Displays no windows and stays out of your way
+* Displays no windows or menus and stays out of your way
 * Multithreaded and can concurrently mount several images
 * Disk image document icons continue to look the same
 
-FastDMG is a minimal wrapper around the [ `hdiutil`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS and therefore uses Apple's private DiskImages framework. It is free, open source software. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
-
-<!--## Download
-
-* [Download FastDMG 1.0](https://sveinbjorn.org/files/software/FastDMG.zip) (~2.0 MB, Intel 64-bit, 10.8 or later)-->
+FastDMG is a minimal wrapper around the [ `hdiutil`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
 
 ## How to use
 

@@ -13,7 +13,6 @@
 		F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10020ACDB4F0086DF1D /* MainMenu.xib */; };
 		F45AC10520ACDB4F0086DF1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC10420ACDB4F0086DF1D /* main.m */; };
 		F45AC10D20ADA1210086DF1D /* diskcopy-doc.icns in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10C20ADA1210086DF1D /* diskcopy-doc.icns */; };
-		F49A990E20ADC55C0064B9A4 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = F49A990D20ADC55C0064B9A4 /* Defaults.plist */; };
 		F49A991120ADD6470064B9A4 /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = F49A991020ADD6470064B9A4 /* app.icns */; };
 		F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F49A991720ADD90F0064B9A4 /* Credits.rtf */; };
 /* End PBXBuildFile section */
@@ -29,7 +28,6 @@
 		F45AC10320ACDB4F0086DF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F45AC10420ACDB4F0086DF1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F45AC10C20ADA1210086DF1D /* diskcopy-doc.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "diskcopy-doc.icns"; sourceTree = "<group>"; };
-		F49A990D20ADC55C0064B9A4 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		F49A991020ADD6470064B9A4 /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = app.icns; sourceTree = "<group>"; };
 		F49A991720ADD90F0064B9A4 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		F49A991B20ADEAC30064B9A4 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 				F42C833F20AF048700E95DD4 /* FastDMGWindow.xib */,
 				F49A991720ADD90F0064B9A4 /* Credits.rtf */,
 				F45AC10320ACDB4F0086DF1D /* Info.plist */,
-				F49A990D20ADC55C0064B9A4 /* Defaults.plist */,
 				F45AC10C20ADA1210086DF1D /* diskcopy-doc.icns */,
 				F49A991020ADD6470064B9A4 /* app.icns */,
 			);
@@ -149,7 +146,6 @@
 				F49A991120ADD6470064B9A4 /* app.icns in Resources */,
 				F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */,
 				F45AC10D20ADA1210086DF1D /* diskcopy-doc.icns in Resources */,
-				F49A990E20ADC55C0064B9A4 /* Defaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +252,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PKGINFO_FILE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -309,6 +306,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_PKGINFO_FILE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -320,7 +318,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				INFOPLIST_FILE = FastDMG/Info.plist;
@@ -340,7 +338,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				INFOPLIST_FILE = FastDMG/Info.plist;
