@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F42C834120AF048700E95DD4 /* FastDMGWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42C833F20AF048700E95DD4 /* FastDMGWindow.xib */; };
+		F42C834120AF048700E95DD4 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42C833F20AF048700E95DD4 /* MainWindow.xib */; };
 		F42C834420AF05A800E95DD4 /* FastDMGWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */; };
 		F45AC0FD20ACDB4E0086DF1D /* FastDMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC0FC20ACDB4E0086DF1D /* FastDMGAppDelegate.m */; };
 		F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10020ACDB4F0086DF1D /* MainMenu.xib */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F42C834020AF048700E95DD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FastDMGWindow.xib; sourceTree = "<group>"; };
+		F42C834020AF048700E95DD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		F42C834220AF05A800E95DD4 /* FastDMGWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastDMGWindowController.h; sourceTree = "<group>"; };
 		F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastDMGWindowController.m; sourceTree = "<group>"; };
 		F45AC0F820ACDB4E0086DF1D /* FastDMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +74,7 @@
 				F42C834220AF05A800E95DD4 /* FastDMGWindowController.h */,
 				F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */,
 				F45AC10020ACDB4F0086DF1D /* MainMenu.xib */,
-				F42C833F20AF048700E95DD4 /* FastDMGWindow.xib */,
+				F42C833F20AF048700E95DD4 /* MainWindow.xib */,
 				F49A991720ADD90F0064B9A4 /* Credits.rtf */,
 				F45AC10320ACDB4F0086DF1D /* Info.plist */,
 				F45AC10C20ADA1210086DF1D /* diskcopy-doc.icns */,
@@ -141,7 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F42C834120AF048700E95DD4 /* FastDMGWindow.xib in Resources */,
+				F42C834120AF048700E95DD4 /* MainWindow.xib in Resources */,
 				F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */,
 				F49A991120ADD6470064B9A4 /* app.icns in Resources */,
 				F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */,
@@ -182,12 +182,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F42C833F20AF048700E95DD4 /* FastDMGWindow.xib */ = {
+		F42C833F20AF048700E95DD4 /* MainWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F42C834020AF048700E95DD4 /* Base */,
 			);
-			name = FastDMGWindow.xib;
+			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 		F45AC10020ACDB4F0086DF1D /* MainMenu.xib */ = {

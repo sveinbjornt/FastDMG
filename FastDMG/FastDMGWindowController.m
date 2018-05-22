@@ -50,7 +50,9 @@
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
-    [[NSApplication sharedApplication] terminate:self];
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"QuitAfterMounting"]) {
+        [[NSApplication sharedApplication] terminate:self];
+//    }
 }
 
 @end

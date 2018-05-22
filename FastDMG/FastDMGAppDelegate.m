@@ -90,7 +90,7 @@
 - (IBAction)showWindow:(id)sender {
     // Load window lazily
     if (windowController == nil) {
-        windowController = [[FastDMGWindowController alloc] initWithWindowNibName:@"FastDMGWindow"];
+        windowController = [[FastDMGWindowController alloc] initWithWindowNibName:@"MainWindow"];
     }
     [windowController showWindow:self];
 }
