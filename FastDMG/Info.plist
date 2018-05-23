@@ -212,8 +212,6 @@
 			<string>Viewer</string>
 		</dict>
 	</array>
-	<key>CFBundleIconFile</key>
-	<string>app</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -244,5 +242,9 @@
 	<string>Copyright © 2012-2018 Sveinbjorn Thordarson. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleIconFile</key>
+	<string>fastdmg</string>
+	<key>NSSupportsSuddenTermination</key>
+	<true/>
 </dict>
 </plist>

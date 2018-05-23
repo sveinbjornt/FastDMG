@@ -25,11 +25,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="420"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Nz-Rk-TJR">
-                        <rect key="frame" x="118" y="336" width="64" height="64"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="app" id="O0O-O9-e95"/>
-                    </imageView>
                     <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9id-1a-TRw">
                         <rect key="frame" x="20" y="186" width="260" height="117"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,6 +115,11 @@
                             </subviews>
                         </view>
                     </box>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Nz-Rk-TJR">
+                        <rect key="frame" x="102" y="317" width="96" height="96"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="fastdmg" id="O0O-O9-e95"/>
+                    </imageView>
                 </subviews>
             </view>
             <connections>
@@ -130,6 +130,6 @@
         <userDefaultsController representsSharedInstance="YES" id="0Np-7J-JZb"/>
     </objects>
     <resources>
-        <image name="app" width="512" height="512"/>
+        <image name="fastdmg" width="512" height="512"/>
     </resources>
 </document>

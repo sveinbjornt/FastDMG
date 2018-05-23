@@ -192,7 +192,8 @@
         if (task.terminationStatus == 0 && [DEFAULTS boolForKey:@"OpenDiskImage"]) {
         
             // Parse task output
-            NSString *mountPoint = [self parseOutputForMountPath:[[task.standardOutput fileHandleForReading] readDataToEndOfFile]];
+            NSData *data = [[task.standardOutput fileHandleForReading] readDataToEndOfFile];
+            NSString *mountPoint = [self parseOutputForMountPath:data];
             
             if (mountPoint) {
                 // Make sure volume has been mounted at mount point
