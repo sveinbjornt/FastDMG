@@ -4,7 +4,7 @@
 
 FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
 
-* **[Download FastDMG 1.0](https://sveinbjorn.org/files/software/FastDMG.zip)** (~2.0 MB, Intel 64-bit, 10.8 or later)
+* **[Download FastDMG 1.0](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.2 MB, Intel 64-bit, 10.8 or later)
 
 ## Features
 
