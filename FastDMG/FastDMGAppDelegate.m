@@ -101,14 +101,7 @@
     // We only become a foreground application if the
     // application wasn't launched via opening a file.
     // In that case, we show FastDMG Settings window
-    if (hasReceivedOpenFileEvent == NO) {
-        if (!inForeground) {
-            inForeground = [self transformToForeground];
-        }
-        
-        [self showWindow:self];
-        [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-    }
+    [self performSelector:@selector(showPrefs) withObject:nil afterDelay:0.5];
 }
 
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filePath {
@@ -117,6 +110,17 @@
     [self mountDiskImage:filePath];
     
     return YES;
+}
+
+- (void)showPrefs {
+    if (hasReceivedOpenFileEvent == NO) {
+        if (!inForeground) {
+            inForeground = [self transformToForeground];
+        }
+        
+        [self showWindow:self];
+        [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+    }
 }
 
 #pragma mark - Handle disk images
@@ -153,6 +157,7 @@
                                   @"-plist",
                                   @"-noautoopen",
                                   @"-noautofsck",
+                                  @"-noverify",
                                   @"-ignorebadchecksums",
                                   @"-noidme"]
                                 mutableCopy];
