@@ -2,7 +2,7 @@
 
 <img src="fastdmg_icon.png" width="256" height="256" align="right" style="float: right; margin-left: 30px;">
 
-FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
+FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's hopelessly inefficient and annoying [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
 
 * **[⇩ Download FastDMG 1.0](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.2 MB, Intel 64-bit, 10.8 or later)
 
@@ -16,7 +16,7 @@ FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other dis
 * Disk image document icons continue to look the same
 * Handles all disk image types supported by DiskImageMounter (dmg, iso, smi, etc.)
 
-FastDMG is a minimal wrapper around the [ `hdiutil`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
+FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
 
 ## How to use
 

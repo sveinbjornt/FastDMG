@@ -33,7 +33,6 @@
 
 #define DEFAULTS [NSUserDefaults standardUserDefaults]
 
-// Debug logging
 #ifdef DEBUG
     #define DebugLog(...) NSLog(__VA_ARGS__)
 #else
@@ -48,18 +47,22 @@
     
     FastDMGWindowController *windowController;
 }
-
-- (IBAction)openFiles:(id)sender;
-
 @end
 
 @implementation FastDMGAppDelegate
 
 + (void)initialize {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [DEFAULTS registerDefaults:[FastDMGAppDelegate defaults]];
+    });
+}
+
++ (NSDictionary *)defaults {
     NSDictionary *defaults = @{ @"InBackground": @(YES),
                                 @"OpenDiskImage": @(YES),
                                 @"QuitAfterMounting": @(YES) };
-    [DEFAULTS registerDefaults:defaults];
+    return defaults;
 }
 
 - (void)awakeFromNib {
@@ -104,10 +107,10 @@
     [self performSelector:@selector(showPrefs) withObject:nil afterDelay:0.5];
 }
 
-- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filePath {
+- (BOOL)application:(NSApplication *)app openFile:(NSString *)path {
     hasReceivedOpenFileEvent = YES;
     
-    [self mountDiskImage:filePath];
+    [self mountDiskImage:path];
     
     return YES;
 }
@@ -162,10 +165,6 @@
                                   @"-noidme"]
                                 mutableCopy];
         
-//        if ([DEFAULTS boolForKey:@"OpenDiskImage"]) {
-//            [args addObject:@"-autoopen"];
-//        }
-        
         task.arguments = args;
         
         // STDIN
@@ -203,9 +202,10 @@
             if (mountPoint) {
                 // Make sure volume has been mounted at mount point
                 int polling_ms = 50000; // 0.05 sec
-                int max = 1000000/polling_ms; // Give it a second to mount
+                int max = 1000000/polling_ms;
                 int cnt = 0;
-                while(cnt < max && [[NSFileManager defaultManager] fileExistsAtPath:mountPoint] == NO) {
+                // Give it max 1 sec second to mount
+                while (cnt < max && [[NSFileManager defaultManager] fileExistsAtPath:mountPoint] == NO) {
                     usleep(polling_ms);
                     cnt++;
                     DebugLog(@"Sleeping, no file at %@", mountPoint);
@@ -218,8 +218,6 @@
                     DebugLog(@"Revealing '%@' in Finder", mountPoint);
                     [[NSWorkspace sharedWorkspace] openFile:mountPoint withApplication:@"Finder" andDeactivate:YES];
                 }
-            } else {
-                // NSBeep();
             }
         }
         
