@@ -112,7 +112,7 @@
 		F45AC0F020ACDB4D0086DF1D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Sveinbjorn Thordarson";
 				TargetAttributes = {
 					F45AC0F720ACDB4E0086DF1D = {

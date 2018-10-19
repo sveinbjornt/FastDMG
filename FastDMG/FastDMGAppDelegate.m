@@ -59,10 +59,9 @@
 }
 
 + (NSDictionary *)defaults {
-    NSDictionary *defaults = @{ @"InBackground": @(YES),
-                                @"OpenDiskImage": @(YES),
-                                @"QuitAfterMounting": @(YES) };
-    return defaults;
+    return @{ @"InBackground": @(YES),
+              @"OpenDiskImage": @(YES),
+              @"QuitAfterMounting": @(YES) };
 }
 
 - (void)awakeFromNib {
@@ -102,7 +101,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // We only become a foreground application if the
-    // application wasn't launched via opening a file.
+    // application wasn't launched by opening a file.
     // In that case, we show FastDMG Settings window
     [self performSelector:@selector(showPrefs) withObject:nil afterDelay:0.5];
 }
@@ -155,6 +154,7 @@
         NSTask *task = [[NSTask alloc] init];
         task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
         
+        // See man hdiutil for details
         NSMutableArray *args = [@[@"attach",
                                   diskImagePath,
                                   @"-plist",
