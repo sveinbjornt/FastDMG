@@ -1,7 +1,8 @@
 # FastDMG
 
+<img src="fastdmg_icon.png" width="256" height="256" align="right" style="float: right; margin-left: 30px;">
 
-
+FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's hopelessly inefficient and annoying [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
 
 ## Features
 
@@ -13,7 +14,9 @@
 * Disk image document icons continue to look the same
 * Handles all disk image types supported by DiskImageMounter (dmg, iso, smi, toast, etc.)
 
-FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BDT58J7HYKAEE"><img align="right" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donate_LG.gif" ></a>
+
+FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. I've used it for many years and it works really well. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
 
 ## How to use
 
@@ -26,18 +29,18 @@ FastDMG will then take care of mounting  `.dmg` disk images when you open them i
 
 ## Version History
 
-### 1.0.1
+### 1.0.1 - 08/04/2019
 
 * App is now Developer ID signed
 * Built with support for Mojave Dark Mode.
 
-### 1.0
+### 1.0 - 23/10/2018
 
 * Initial release
 
 ## BSD License 
 
-Copyright (C) 2012-2018 Sveinbjorn Thordarson &lt;<a href="mailto:">sveinbjorn@sveinbjorn.org</a>&gt;
+Copyright (C) 2012-2019 Sveinbjorn Thordarson &lt;<a href="mailto:">sveinbjorn@sveinbjorn.org</a>&gt;
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -63,3 +66,6 @@ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
+
+The FastDMG application icon is copyright (C) [Drífa Thoroddsen](https://drifaliftora.is).
+
