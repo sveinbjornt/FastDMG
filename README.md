@@ -12,7 +12,7 @@ FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other dis
 * Displays no windows or menus and stays out of your way
 * Multithreaded and can concurrently mount several images
 * Disk image document icons continue to look the same
-* Handles all disk image types supported by DiskImageMounter (dmg, iso, smi, toast, etc.)
+* Handles all disk image types supported by DiskImageMounter (dmg, iso, toast, etc.)
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BDT58J7HYKAEE"><img align="right" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donate_LG.gif" ></a>
 
@@ -25,7 +25,7 @@ FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.appl
 * Select FastDMG under "Open with:"
 * Press "Change All..."
 
-FastDMG will then take care of mounting  `.dmg` disk images when you open them in the Finder. You can do the same for `.iso`, `.smi`, `.toast` and any other disk image formats supported by FastDMG.
+FastDMG will then take care of mounting  `.dmg` disk images when you open them in the Finder. You can do the same for `.iso`,  `.toast` and any other disk image formats supported by FastDMG.
 
 ## Version History
 
