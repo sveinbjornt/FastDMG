@@ -18,6 +18,10 @@ FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other dis
 
 FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. I've used it for many years and it works really well. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
 
+## Download
+
+*  **[⇩ Download FastDMG 1.0.1](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.2 MB, Intel 64-bit, 10.8 or later)
+
 ## How to use
 
 * Move FastDMG.app to your Applications folder
