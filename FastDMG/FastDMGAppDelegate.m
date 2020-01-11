@@ -65,10 +65,11 @@
 }
 
 - (void)awakeFromNib {
+    // Transition to foreground if RunInBackground setting is NO
     if (!inForeground && [DEFAULTS boolForKey:@"RunInBackground"] == NO) {
         inForeground = [self transformToForeground];
     }
-    
+    // Start listening for task done notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(taskDone:)
                                                  name:@"FastDMGTaskDoneNotification"
@@ -78,8 +79,8 @@
 #pragma mark -
 
 - (BOOL)transformToForeground {
+    // Use nasty Carbon API to transition between application states
     ProcessSerialNumber psn = { 0, kCurrentProcess };
-    
     OSStatus ret = TransformProcessType(&psn, kProcessTransformToForegroundApplication);
     if (ret != noErr) {
         DebugLog(@"Failed to transform application to foreground state: %d", ret);
@@ -102,7 +103,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // We only become a foreground application if the
     // application wasn't launched by opening a file.
-    // In that case, we show FastDMG Settings window
+    // In that case, we show FastDMG Settings window.
     [self performSelector:@selector(showPrefs) withObject:nil afterDelay:0.5];
 }
 
@@ -115,6 +116,7 @@
 }
 
 - (void)showPrefs {
+    // Show Preferences window
     if (hasReceivedOpenFileEvent == NO) {
         if (!inForeground) {
             inForeground = [self transformToForeground];
@@ -237,7 +239,7 @@
 }
 
 - (NSString *)parseOutputForMountPath:(NSData *)outputData {
-    
+    // Create string object
     NSString *outputStr = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
     DebugLog(@"Output:\n%@", outputStr);
     
@@ -249,6 +251,7 @@
         outputData = [plistString dataUsingEncoding:NSUTF8StringEncoding];
     }
     
+    // Parse property list
     NSError *error = nil;
     NSPropertyListFormat format;
     NSDictionary *plist = [NSPropertyListSerialization propertyListWithData:outputData
@@ -273,6 +276,7 @@
 
 - (void)taskDone:(id)obj {
     numActiveTasks -= 1;
+    // Quit if no tasks and QuitAfterMounting is true
     if (numActiveTasks == 0 && windowController == nil && [DEFAULTS boolForKey:@"QuitAfterMounting"]) {
         [[NSApplication sharedApplication] terminate:self];
     }
@@ -282,6 +286,7 @@
     NSBeep();
     [NSApp activateIgnoringOtherApps:YES];
     
+    // Show alert asking whether to try with DiskImageMounter
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Try DiskImageMounter"];
     [alert addButtonWithTitle:@"Abort"];
