@@ -34,9 +34,9 @@
 #define DEFAULTS [NSUserDefaults standardUserDefaults]
 
 #ifdef DEBUG
-    #define DebugLog(...) NSLog(__VA_ARGS__)
+    #define DLog(...) NSLog(__VA_ARGS__)
 #else
-    #define DebugLog(...)
+    #define DLog(...)
 #endif
 
 @interface FastDMGAppDelegate ()
@@ -83,7 +83,7 @@
     ProcessSerialNumber psn = { 0, kCurrentProcess };
     OSStatus ret = TransformProcessType(&psn, kProcessTransformToForegroundApplication);
     if (ret != noErr) {
-        DebugLog(@"Failed to transform application to foreground state: %d", ret);
+        DLog(@"Failed to transform application to foreground state: %d", ret);
         return NO;
     }
     
@@ -151,7 +151,7 @@
     
     // Set task off in high priority background thread
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{ @autoreleasepool {
-        DebugLog(@"Launching task: %@", diskImagePath);
+        DLog(@"Launching task: %@", diskImagePath);
         
         NSTask *task = [[NSTask alloc] init];
         task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
@@ -192,7 +192,7 @@
         [inputHandle closeFile]; // Close STDIN
         [task waitUntilExit];
         
-        DebugLog(@"Task termination status: %d", task.terminationStatus);
+        DLog(@"Task termination status: %d", task.terminationStatus);
         
         // Open disk image in Finder
         if (task.terminationStatus == 0 && [DEFAULTS boolForKey:@"OpenDiskImage"]) {
@@ -210,14 +210,14 @@
                 while (cnt < max && [[NSFileManager defaultManager] fileExistsAtPath:mountPoint] == NO) {
                     usleep(polling_ms);
                     cnt++;
-                    DebugLog(@"Sleeping, no file at %@", mountPoint);
+                    DLog(@"Sleeping, no file at %@", mountPoint);
                 }
                 
                 if (cnt == max-1) {
-                    DebugLog(@"Mount point '%@' doesn't exist", mountPoint);
+                    DLog(@"Mount point '%@' doesn't exist", mountPoint);
                 } else {
                     // Show in Finder
-                    DebugLog(@"Revealing '%@' in Finder", mountPoint);
+                    DLog(@"Revealing '%@' in Finder", mountPoint);
                     [[NSWorkspace sharedWorkspace] openFile:mountPoint withApplication:@"Finder" andDeactivate:YES];
                 }
             }
@@ -232,7 +232,7 @@
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FastDMGTaskDoneNotification" object:diskImagePath];
             
-            DebugLog(@"Finished processing %@", diskImagePath);
+            DLog(@"Finished processing %@", diskImagePath);
         });
         
     }});
@@ -241,7 +241,12 @@
 - (NSString *)parseOutputForMountPath:(NSData *)outputData {
     // Create string object
     NSString *outputStr = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
-    DebugLog(@"Output:\n%@", outputStr);
+    if (outputStr) {
+        DLog(@"Output:\n%@", outputStr);
+    } else {
+        DLog(@"Unable to read output data as UTF8 string");
+        return nil;
+    }
     
     // Search for property list output
     NSString *xmlHeader = @"<?xml ";
@@ -258,9 +263,8 @@
                                                                     options:NSPropertyListImmutable
                                                                      format:&format
                                                                       error:&error];
-    
     if (plist == nil) {
-        DebugLog(@"Could not parse output as plist: %@", [error localizedDescription]);
+        DLog(@"Could not parse output string as plist: %@", [error localizedDescription]);
         return nil;
     }
     
@@ -298,7 +302,7 @@ the disk image “%@”. Would you like to try using Apple's DiskImageMounter?",
     [alert setInformativeText:msg];
 
     if ([alert runModal] == NSAlertFirstButtonReturn) {
-        DebugLog(@"Opening '%@' with DiskImageMounter", filePath);
+        DLog(@"Opening '%@' with DiskImageMounter", filePath);
         [[NSWorkspace sharedWorkspace] openFile:filePath withApplication:@"DiskImageMounter"];
     }
 }
