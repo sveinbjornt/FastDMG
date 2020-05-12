@@ -114,7 +114,7 @@
 		F45AC0F020ACDB4D0086DF1D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Sveinbjorn Thordarson";
 				TargetAttributes = {
 					F45AC0F720ACDB4E0086DF1D = {
@@ -329,7 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -346,7 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
