@@ -1,8 +1,10 @@
 # FastDMG
 
+> "Replaces the system default DMG mounting application; is better in every way." - Some guy on the Internet
+
 <img src="fastdmg_icon.png" width="256" height="256" align="right" style="float: right; margin-left: 30px;">
 
-FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's hopelessly inefficient and annoying [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
+FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's hopelessly inefficient and annoying [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app. And yes, that icon is a reference to After Dark's [Flying Toasters](https://en.wikipedia.org/wiki/After_Dark_(software)) screensaver on Classic MacOS.
 
 ## Features
 
