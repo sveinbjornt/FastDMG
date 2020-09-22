@@ -157,17 +157,14 @@
         task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
         
         // See man hdiutil for details
-        NSMutableArray *args = [@[@"attach",
-                                  diskImagePath,
-                                  @"-plist",
-                                  @"-noautoopen",
-                                  @"-noautofsck",
-                                  @"-noverify",
-                                  @"-ignorebadchecksums",
-                                  @"-noidme"]
-                                mutableCopy];
-        
-        task.arguments = args;
+        task.arguments = @[@"attach",
+                           diskImagePath,
+                           @"-plist",
+                           @"-noautoopen",
+                           @"-noautofsck",
+                           @"-noverify",
+                           @"-ignorebadchecksums",
+                           @"-noidme"];
         
         // STDIN
         task.standardInput = [NSPipe pipe];
