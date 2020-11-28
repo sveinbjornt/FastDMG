@@ -23,7 +23,7 @@ FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.appl
 
 ## Download
 
-*  **[⇩ Download FastDMG 1.0.1](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.2 MB, Intel 64-bit, 10.8 or later)
+*  **[⇩ Download FastDMG 1.0.2](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.4 MB, Intel 64-bit, 10.8 or later)
 
 ## How to use
 
@@ -35,6 +35,10 @@ FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.appl
 FastDMG will then take care of mounting  `.dmg` disk images when you open them in the Finder. You can do the same for `.iso`,  `.toast` and any other disk image formats supported by FastDMG.
 
 ## Version History
+
+### 1.0.2 - 28/11/2020
+
+* App is now built as a Universal ARM/Intel 64-bit binary
 
 ### 1.0.1 - 08/04/2019
 
