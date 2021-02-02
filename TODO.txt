@@ -1,1 +1,3 @@
 
+TODO:
+    * Fix issue with rich text in settings windows and dark mode

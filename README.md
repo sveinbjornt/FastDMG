@@ -15,7 +15,8 @@ FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other dis
 * Multithreaded and can concurrently mount several images
 * Disk image document icons continue to look the same
 * Handles all disk image types supported by DiskImageMounter (dmg, iso, toast, etc.)
-* Very fast, minimal native app written in Objective-C
+* If errors come up, uses low-level APIs to force informative alert to the fornt
+* Very fast native app written in Objective-C
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BDT58J7HYKAEE"><img align="right" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donate_LG.gif" ></a>
 
@@ -30,7 +31,7 @@ FastDMG is a very minimal wrapper around the [ `hdiutil`](https://developer.appl
 * Move FastDMG.app to your Applications folder
 * Ctrl-click the FastDMG app and select Open to bypass Apple's Gatekeeper
 * Select a `.dmg` file and press Cmd-I to show the Finder's Get Info window
-* Select FastDMG under "Open with:"
+* Select FastDMG under the menu item "Open with:"
 * Press "Change All..."
 
 FastDMG will then take care of mounting  `.dmg` disk images when you open them in the Finder. You can do the same for `.iso`,  `.toast` and any other disk image formats supported by FastDMG.
@@ -52,7 +53,7 @@ FastDMG will then take care of mounting  `.dmg` disk images when you open them i
 
 ## BSD License 
 
-Copyright (C) 2012-2020 Sveinbjorn Thordarson &lt;<a href="mailto:">sveinbjorn@sveinbjorn.org</a>&gt;
+Copyright (C) 2012-2021 Sveinbjorn Thordarson &lt;<a href="mailto:">sveinbjorn@sveinbjorn.org</a>&gt;
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
