@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
+
 # FastDMG
 
 > "Replaces the system default DMG mounting application; is better in every way." - Some guy on the Internet
