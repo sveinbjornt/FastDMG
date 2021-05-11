@@ -23,6 +23,7 @@
 		F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastDMGWindowController.m; sourceTree = "<group>"; };
 		F431C63E20B5E8F800EC4D03 /* fastdmg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = fastdmg.icns; sourceTree = "<group>"; };
 		F431C64020B5EEFA00EC4D03 /* fastdmg.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = fastdmg.iconset; sourceTree = "<group>"; };
+		F4485613264AB4EE0098872C /* macos.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = macos.yml; path = .github/workflows/macos.yml; sourceTree = "<group>"; };
 		F45AC0F820ACDB4E0086DF1D /* FastDMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45AC0FB20ACDB4E0086DF1D /* FastDMGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastDMGAppDelegate.h; sourceTree = "<group>"; };
 		F45AC0FC20ACDB4E0086DF1D /* FastDMGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastDMGAppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		F45AC0EF20ACDB4D0086DF1D = {
 			isa = PBXGroup;
 			children = (
+				F4485613264AB4EE0098872C /* macos.yml */,
 				F4FC1A062239E5D700CC1F6A /* Makefile */,
 				F49A991B20ADEAC30064B9A4 /* LICENSE.txt */,
 				F49A991D20AE4F5E0064B9A4 /* TODO.txt */,
