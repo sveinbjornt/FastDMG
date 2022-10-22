@@ -4,6 +4,7 @@ all: build
 
 build:
 	mkdir -p products
+	xattr -w com.apple.xcode.CreatedByBuildSystem true products
 	xcodebuild  -parallelizeTargets \
 	            -project "FastDMG.xcodeproj" \
 	            -target "FastDMG" \
@@ -16,5 +17,6 @@ build:
 	@stat -f %z products/FastDMG.app/Contents/MacOS/*
 
 clean:
+	xattr -w com.apple.xcode.CreatedByBuildSystem true products
 	xcodebuild -project "FastDMG.xcodeproj" clean
 	rm -rf products/* 2> /dev/null
