@@ -20,7 +20,6 @@ FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other dis
 * Multithreaded and can concurrently mount several images
 * Disk image document icons continue to look the same
 * Handles all disk image types supported by DiskImageMounter (dmg, iso, toast, etc.)
-* If errors come up, uses low-level APIs to force informative alert to the fornt
 * Very fast native app written in Objective-C/Cocoa
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BDT58J7HYKAEE"><img align="right" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donate_LG.gif" style="float:right; margin-left: 20px;"></a>
