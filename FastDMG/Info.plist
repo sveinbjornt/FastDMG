@@ -15,7 +15,7 @@
 				<string>img</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>NDIF Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -34,7 +34,7 @@
 				<string>imgpart</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>NDIF Disk Image Segment</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -50,7 +50,7 @@
 				<string>smi</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Self Mounting Image</string>
 			<key>CFBundleTypeRole</key>
@@ -63,7 +63,7 @@
 				<string>udif</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -81,7 +81,7 @@
 				<string>cdr</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>DVD/CD-R Master Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -98,7 +98,7 @@
 				<string>dmgpart</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Disk Image Segment</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -115,7 +115,7 @@
 				<string>diskcopy42</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Disk Copy 4.2 Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -131,7 +131,7 @@
 				<string>dart</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>DART Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -151,7 +151,7 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Raw Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -165,7 +165,7 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>PC Drive Container</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -181,7 +181,7 @@
 				<string>iso</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>ISO Disk Image</string>
 			<key>CFBundleTypeRole</key>
@@ -193,7 +193,7 @@
 				<string>sparseimage</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Sparse Disk Image</string>
 			<key>CFBundleTypeRole</key>
@@ -205,7 +205,7 @@
 				<string>sparsebundle</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskcopy-doc.icns</string>
+			<string>diskimage.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Sparse Disk Image Bundle</string>
 			<key>CFBundleTypeRole</key>
@@ -215,7 +215,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Copyright © 2012-2021 Sveinbjorn Thordarson. All rights reserved.</string>
+	<string>Copyright © 2012-2022 Sveinbjorn Thordarson. All rights reserved.</string>
 	<key>CFBundleIconFile</key>
 	<string>fastdmg</string>
 	<key>CFBundleIdentifier</key>
@@ -227,11 +227,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.2</string>
+	<string>1.0.3</string>
 	<key>CFBundleSignature</key>
 	<string>fdmg</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -239,7 +239,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012-2021 Sveinbjorn Thordarson. All rights reserved.</string>
+	<string>Copyright © 2012-2024 Sveinbjorn Thordarson. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

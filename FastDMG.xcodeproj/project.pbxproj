@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,8 +13,8 @@
 		F45AC0FD20ACDB4E0086DF1D /* FastDMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC0FC20ACDB4E0086DF1D /* FastDMGAppDelegate.m */; };
 		F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10020ACDB4F0086DF1D /* MainMenu.xib */; };
 		F45AC10520ACDB4F0086DF1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC10420ACDB4F0086DF1D /* main.m */; };
-		F45AC10D20ADA1210086DF1D /* diskcopy-doc.icns in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10C20ADA1210086DF1D /* diskcopy-doc.icns */; };
 		F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F49A991720ADD90F0064B9A4 /* Credits.rtf */; };
+		F4E2D4CE29268E2C00BDA386 /* diskimage.icns in Resources */ = {isa = PBXBuildFile; fileRef = F4E2D4CD29268E2C00BDA386 /* diskimage.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,11 +30,11 @@
 		F45AC10120ACDB4F0086DF1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F45AC10320ACDB4F0086DF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F45AC10420ACDB4F0086DF1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F45AC10C20ADA1210086DF1D /* diskcopy-doc.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "diskcopy-doc.icns"; sourceTree = "<group>"; };
 		F49A991720ADD90F0064B9A4 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		F49A991B20ADEAC30064B9A4 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F49A991C20ADEAC30064B9A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F49A991D20AE4F5E0064B9A4 /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
+		F4E2D4CD29268E2C00BDA386 /* diskimage.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = diskimage.icns; sourceTree = "<group>"; };
 		F4FC1A062239E5D700CC1F6A /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +84,7 @@
 				F45AC10320ACDB4F0086DF1D /* Info.plist */,
 				F431C64020B5EEFA00EC4D03 /* fastdmg.iconset */,
 				F431C63E20B5E8F800EC4D03 /* fastdmg.icns */,
-				F45AC10C20ADA1210086DF1D /* diskcopy-doc.icns */,
+				F4E2D4CD29268E2C00BDA386 /* diskimage.icns */,
 			);
 			path = FastDMG;
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 		F45AC0F020ACDB4D0086DF1D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = "Sveinbjorn Thordarson";
 				TargetAttributes = {
 					F45AC0F720ACDB4E0086DF1D = {
@@ -148,10 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42C834120AF048700E95DD4 /* MainWindow.xib in Resources */,
+				F4E2D4CE29268E2C00BDA386 /* diskimage.icns in Resources */,
 				F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */,
 				F431C63F20B5E8F800EC4D03 /* fastdmg.icns in Resources */,
 				F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */,
-				F45AC10D20ADA1210086DF1D /* diskcopy-doc.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +160,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		F49A990F20ADCA6E0064B9A4 /* Set CFBundleVersion */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -240,13 +241,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -262,7 +263,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_PKGINFO_FILE = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -304,7 +306,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -321,7 +323,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_PKGINFO_FILE = NO;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				STRIPFLAGS = "-x";
@@ -333,13 +336,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FastDMG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.FastDMG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -350,13 +353,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FastDMG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.FastDMG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

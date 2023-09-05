@@ -44,6 +44,7 @@
 
     NSString *rtfFilePath = [[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"];
     [aboutTextView readRTFDFromFile:rtfFilePath];
+    [aboutTextView setTextColor:[NSColor labelColor]];
 
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [versionTextField setStringValue:[NSString stringWithFormat:@"Version %@", version]];

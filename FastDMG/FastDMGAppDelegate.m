@@ -153,7 +153,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{ @autoreleasepool {
         DLog(@"Launching task: %@", diskImagePath);
         
-        NSTask *task = [[NSTask alloc] init];
+        NSTask *task = [NSTask new];
         task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
         
         // See man hdiutil for details
@@ -288,7 +288,7 @@
     [NSApp activateIgnoringOtherApps:YES];
     
     // Show alert asking whether to try with DiskImageMounter
-    NSAlert *alert = [[NSAlert alloc] init];
+    NSAlert *alert = [NSAlert new];
     [alert addButtonWithTitle:@"Try DiskImageMounter"];
     [alert addButtonWithTitle:@"Abort"];
     [alert setAlertStyle:NSWarningAlertStyle];
