@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2012-2021, Sveinbjorn Thordarson <sveinbjorn@sveinbjorn.org>
+ Copyright (c) 2012-2024, Sveinbjorn Thordarson <sveinbjorn@sveinbjorn.org>
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification,
@@ -59,7 +59,7 @@
 }
 
 + (NSDictionary *)defaults {
-    return @{ @"InBackground": @(YES),
+    return @{ @"RunInBackground": @(YES),
               @"OpenDiskImage": @(YES),
               @"QuitAfterMounting": @(YES) };
 }
@@ -135,10 +135,9 @@
     [oPanel setAllowsMultipleSelection:YES];
     [oPanel setCanChooseFiles:YES];
     [oPanel setCanChooseDirectories:NO];
-    //[oPanel setAllowedFileTypes:@"dmg", @"com.apple.disk-image"];
-
+    
     // Run it modally
-    if ([oPanel runModal] == NSFileHandlingPanelOKButton) {
+    if ([oPanel runModal] == NSModalResponseOK) {
         for (NSURL *url in [oPanel URLs]) {
             [self mountDiskImage:[url path]];
         }
@@ -215,7 +214,9 @@
                 } else {
                     // Show in Finder
                     DLog(@"Revealing '%@' in Finder", mountPoint);
-                    [[NSWorkspace sharedWorkspace] openFile:mountPoint withApplication:@"Finder" andDeactivate:YES];
+                    [[NSWorkspace sharedWorkspace] openFile:mountPoint 
+                                            withApplication:@"Finder"
+                                              andDeactivate:YES];
                 }
             }
         }
@@ -291,7 +292,7 @@
     NSAlert *alert = [NSAlert new];
     [alert addButtonWithTitle:@"Try DiskImageMounter"];
     [alert addButtonWithTitle:@"Abort"];
-    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert setAlertStyle:NSAlertStyleWarning];
     [alert setMessageText:@"Unable to mount disk image"];
     
     NSString *msg = [NSString stringWithFormat:@"FastDMG failed to mount \

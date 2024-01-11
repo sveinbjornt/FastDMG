@@ -57,7 +57,7 @@ FastDMG will then take care of mounting  `.dmg` disk images when you open them i
 
 ## BSD License 
 
-Copyright (C) 2012-2021 Sveinbjorn Thordarson &lt;<a href="mailto:">sveinbjorn@sveinbjorn.org</a>&gt;
+Copyright (C) 2012-2024 Sveinbjorn Thordarson &lt;<a href="mailto:">sveinbjorn@sveinbjorn.org</a>&gt;
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:

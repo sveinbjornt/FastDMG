@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2012-2021, Sveinbjorn Thordarson <sveinbjorn@sveinbjorn.org>
+ Copyright (c) 2012-2024, Sveinbjorn Thordarson <sveinbjorn@sveinbjorn.org>
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without modification,
@@ -51,9 +51,7 @@
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"QuitAfterMounting"]) {
-        [[NSApplication sharedApplication] terminate:self];
-//    }
+    [[NSApplication sharedApplication] terminate:self];
 }
 
 @end
