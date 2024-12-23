@@ -202,7 +202,7 @@
                 int polling_ms = 50000; // 0.05 sec
                 int max = 1000000/polling_ms;
                 int cnt = 0;
-                // Give it max 1 sec second to mount
+                // Give it max 1 sec to mount
                 while (cnt < max && [[NSFileManager defaultManager] fileExistsAtPath:mountPoint] == NO) {
                     usleep(polling_ms);
                     cnt++;
