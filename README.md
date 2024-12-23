@@ -30,6 +30,20 @@ FastDMG is a very minimal wrapper around the [ `hdiutil`](https://web.archive.or
 
 *  **[⇩ Download FastDMG 1.0.2](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.4 MB, Universal ARM/Intel 64-bit, 10.9 or later)
 
+## Brew
+
+FastDMG can be installed via `brew`:
+
+```bash
+brew install fastdmg
+```
+
+Then:
+
+```bash
+open /Applications/FastDMG.app
+```
+
 ## How to use
 
 * Move FastDMG.app to your Applications folder
@@ -57,7 +71,7 @@ FastDMG will then take care of mounting  `.dmg` disk images when you open them i
 
 ## BSD License 
 
-Copyright (C) 2012-2024 Sveinbjorn Thordarson &lt;<a href="mailto:">sveinbjorn@sveinbjorn.org</a>&gt;
+Copyright (C) 2012-2024 Sveinbjorn Thordarson &lt;<a href="mailto:sveinbjorn@sveinbjorn.org">sveinbjorn@sveinbjorn.org</a>&gt;
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
