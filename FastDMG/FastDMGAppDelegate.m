@@ -87,6 +87,13 @@
         return NO;
     }
     
+    // Important: After transforming to a foreground app, we need to
+    // register for dock notifications and set activation policy
+    [[NSApplication sharedApplication] setActivationPolicy:NSApplicationActivationPolicyRegular];
+    
+    // We also need to ensure the app appears in the dock
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+    
     return YES;
 }
 
@@ -120,10 +127,28 @@
     if (hasReceivedOpenFileEvent == NO) {
         if (!inForeground) {
             inForeground = [self transformToForeground];
+            
+            // This slight delay is important to let the UI update after the transformation
+            [self performSelector:@selector(showAndActivateWindow) withObject:nil afterDelay:0.1];
+        } else {
+            [self showAndActivateWindow];
         }
+    }
+}
+
+- (void)showAndActivateWindow {
+    // First activate the app itself
+    [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+    
+    // Then show window and make it key
+    [self showWindow:self];
+    
+    // Force window to front and make it key
+    if (windowController && windowController.window) {
+        [windowController.window makeKeyAndOrderFront:self];
         
-        [self showWindow:self];
-        [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+        // Special addition to ensure the window becomes active and key
+        [NSApp arrangeInFront:self];
     }
 }
 
