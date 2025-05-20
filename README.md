@@ -3,13 +3,13 @@
 [![Release](https://shields.io/github/v/release/sveinbjornt/fastdmg?display_name=tag)]()
 [![Build](https://github.com/sveinbjornt/fastdmg/actions/workflows/macos.yml/badge.svg)]()
 
+<img src="Icon/fastdmg.png" width="256" height="256" align="right" style="float: right; margin-left: 30px;">
+
 # FastDMG
 
 > "Replaces the system default DMG mounting application; is better in every way." - Some guy on the Internet
 
-<img src="fastdmg_icon.png" width="256" height="256" align="right" style="float: right; margin-left: 30px;">
-
-FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's hopelessly inefficient and annoying [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app. And yes, that icon is a reference to After Dark's [Flying Toasters](https://en.wikipedia.org/wiki/After_Dark_(software)) screensaver on Classic MacOS.
+FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other disk images without any unneeded nonsense. It is a very fast and reliable replacement for Apple's hopelessly inefficient and annoying [DiskImageMounter](https://en.wikipedia.org/wiki/DiskImageMounter) app.
 
 ## Features
 
@@ -28,14 +28,16 @@ FastDMG is a very minimal wrapper around the [ `hdiutil`](https://web.archive.or
 
 ## Download
 
-*  **[⇩ Download FastDMG 1.0.2](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.4 MB, Universal ARM/Intel 64-bit, 10.9 or later)
+*  **[⇩ Download FastDMG 1.0.3](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.4 MB, Universal ARM/Intel 64-bit, 10.13 or later)
+
+If you need to run it on macOS 10.9-10.12, [version 1.0.2](https://sveinbjorn.org/files/software/fastdmg/) continues to work just fine.
 
 ## Brew
 
-FastDMG can be installed via `brew`:
+FastDMG can also be installed via [Homebrew](https://brew.sh/):
 
 ```bash
-brew install fastdmg
+brew install --cask FastDMG
 ```
 
 Then:
@@ -56,6 +58,11 @@ FastDMG will then take care of mounting  `.dmg` disk images when you open them i
 
 ## Version History
 
+### 1.0.3 - 20/05/2025
+
+* App is now Developer ID signed and notarized by Apple
+* New application icon by maxtron95
+
 ### 1.0.2 - 28/11/2020
 
 * App is now built as a Universal ARM/Intel 64-bit binary
@@ -63,15 +70,15 @@ FastDMG will then take care of mounting  `.dmg` disk images when you open them i
 ### 1.0.1 - 08/04/2019
 
 * App is now Developer ID signed
-* Built with support for Mojave Dark Mode.
+* Built with support for Mojave Dark Mode
 
 ### 1.0 - 23/10/2018
 
-* Initial release
+* First release as native non-[Platypus](https://sveinbjorn.org/platypus) app
 
 ## BSD License 
 
-Copyright (C) 2012-2024 Sveinbjorn Thordarson &lt;<a href="mailto:sveinbjorn@sveinbjorn.org">sveinbjorn@sveinbjorn.org</a>&gt;
+Copyright (C) 2012-2025 Sveinbjorn Thordarson &lt;<a href="mailto:sveinbjorn@sveinbjorn.org">sveinbjorn@sveinbjorn.org</a>&gt;
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -97,6 +104,4 @@ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
-
-The FastDMG application icon is copyright (C) [Drífa Thoroddsen](https://drifaliftora.is).
 

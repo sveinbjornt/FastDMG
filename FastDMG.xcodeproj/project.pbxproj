@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F416C1F42DDCC9FE00B710B6 /* fastdmg.icns in Resources */ = {isa = PBXBuildFile; fileRef = F416C1F32DDCC9FE00B710B6 /* fastdmg.icns */; };
 		F42C834120AF048700E95DD4 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = F42C833F20AF048700E95DD4 /* MainWindow.xib */; };
 		F42C834420AF05A800E95DD4 /* FastDMGWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */; };
-		F431C63F20B5E8F800EC4D03 /* fastdmg.icns in Resources */ = {isa = PBXBuildFile; fileRef = F431C63E20B5E8F800EC4D03 /* fastdmg.icns */; };
 		F45AC0FD20ACDB4E0086DF1D /* FastDMGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC0FC20ACDB4E0086DF1D /* FastDMGAppDelegate.m */; };
 		F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10020ACDB4F0086DF1D /* MainMenu.xib */; };
 		F45AC10520ACDB4F0086DF1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC10420ACDB4F0086DF1D /* main.m */; };
@@ -18,11 +18,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F416C1F32DDCC9FE00B710B6 /* fastdmg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = fastdmg.icns; sourceTree = "<group>"; };
+		F416C1F52DDCCC4D00B710B6 /* fastdmg.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = fastdmg.ai; sourceTree = "<group>"; };
+		F416C1F62DDCCC4D00B710B6 /* fastdmg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = fastdmg.icns; sourceTree = "<group>"; };
+		F416C1F72DDCCC4D00B710B6 /* fastdmg.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = fastdmg.iconset; sourceTree = "<group>"; };
+		F416C1F82DDCCC4D00B710B6 /* fastdmg_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fastdmg_icon.png; sourceTree = "<group>"; };
+		F416C1FA2DDCCC4D00B710B6 /* createicns */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = createicns; sourceTree = "<group>"; };
+		F416C1FC2DDCCC4D00B710B6 /* fastdmg.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = fastdmg.iconset; sourceTree = "<group>"; };
+		F416C1FD2DDCCC4D00B710B6 /* fastdmg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fastdmg.png; sourceTree = "<group>"; };
+		F416C1FE2DDCCC4D00B710B6 /* make_icon.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = make_icon.sh; sourceTree = "<group>"; };
 		F42C834020AF048700E95DD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		F42C834220AF05A800E95DD4 /* FastDMGWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastDMGWindowController.h; sourceTree = "<group>"; };
 		F42C834320AF05A800E95DD4 /* FastDMGWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastDMGWindowController.m; sourceTree = "<group>"; };
-		F431C63E20B5E8F800EC4D03 /* fastdmg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = fastdmg.icns; sourceTree = "<group>"; };
-		F431C64020B5EEFA00EC4D03 /* fastdmg.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = fastdmg.iconset; sourceTree = "<group>"; };
 		F4485613264AB4EE0098872C /* macos.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = macos.yml; path = .github/workflows/macos.yml; sourceTree = "<group>"; };
 		F45AC0F820ACDB4E0086DF1D /* FastDMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45AC0FB20ACDB4E0086DF1D /* FastDMGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastDMGAppDelegate.h; sourceTree = "<group>"; };
@@ -33,7 +40,6 @@
 		F49A991720ADD90F0064B9A4 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		F49A991B20ADEAC30064B9A4 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F49A991C20ADEAC30064B9A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F49A991D20AE4F5E0064B9A4 /* TODO.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		F4E2D4CD29268E2C00BDA386 /* diskimage.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = diskimage.icns; sourceTree = "<group>"; };
 		F4FC1A062239E5D700CC1F6A /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,15 +55,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F416C1F92DDCCC4D00B710B6 /* old */ = {
+			isa = PBXGroup;
+			children = (
+				F416C1F52DDCCC4D00B710B6 /* fastdmg.ai */,
+				F416C1F62DDCCC4D00B710B6 /* fastdmg.icns */,
+				F416C1F72DDCCC4D00B710B6 /* fastdmg.iconset */,
+				F416C1F82DDCCC4D00B710B6 /* fastdmg_icon.png */,
+			);
+			path = old;
+			sourceTree = "<group>";
+		};
+		F416C1FF2DDCCC4D00B710B6 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				F416C1FE2DDCCC4D00B710B6 /* make_icon.sh */,
+				F416C1FA2DDCCC4D00B710B6 /* createicns */,
+				F416C1FC2DDCCC4D00B710B6 /* fastdmg.iconset */,
+				F416C1FD2DDCCC4D00B710B6 /* fastdmg.png */,
+				F416C1F92DDCCC4D00B710B6 /* old */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
 		F45AC0EF20ACDB4D0086DF1D = {
 			isa = PBXGroup;
 			children = (
 				F4485613264AB4EE0098872C /* macos.yml */,
 				F4FC1A062239E5D700CC1F6A /* Makefile */,
 				F49A991B20ADEAC30064B9A4 /* LICENSE.txt */,
-				F49A991D20AE4F5E0064B9A4 /* TODO.txt */,
 				F49A991C20ADEAC30064B9A4 /* README.md */,
 				F45AC0FA20ACDB4E0086DF1D /* FastDMG */,
+				F416C1FF2DDCCC4D00B710B6 /* Icon */,
 				F45AC0F920ACDB4E0086DF1D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,9 +111,8 @@
 				F42C833F20AF048700E95DD4 /* MainWindow.xib */,
 				F49A991720ADD90F0064B9A4 /* Credits.rtf */,
 				F45AC10320ACDB4F0086DF1D /* Info.plist */,
-				F431C64020B5EEFA00EC4D03 /* fastdmg.iconset */,
-				F431C63E20B5E8F800EC4D03 /* fastdmg.icns */,
 				F4E2D4CD29268E2C00BDA386 /* diskimage.icns */,
+				F416C1F32DDCC9FE00B710B6 /* fastdmg.icns */,
 			);
 			path = FastDMG;
 			sourceTree = "<group>";
@@ -116,7 +144,8 @@
 		F45AC0F020ACDB4D0086DF1D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1410;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1630;
 				ORGANIZATIONNAME = "Sveinbjorn Thordarson";
 				TargetAttributes = {
 					F45AC0F720ACDB4E0086DF1D = {
@@ -150,8 +179,8 @@
 				F42C834120AF048700E95DD4 /* MainWindow.xib in Resources */,
 				F4E2D4CE29268E2C00BDA386 /* diskimage.icns in Resources */,
 				F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */,
-				F431C63F20B5E8F800EC4D03 /* fastdmg.icns in Resources */,
 				F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */,
+				F416C1F42DDCC9FE00B710B6 /* fastdmg.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +275,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEPLOYMENT_POSTPROCESSING = YES;
+				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -311,6 +341,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = YES;
+				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = NO;
@@ -337,12 +368,12 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FastDMG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.FastDMG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -354,12 +385,12 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5WX26Y89JP;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FastDMG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sveinbjorn.FastDMG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

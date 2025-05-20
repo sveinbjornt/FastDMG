@@ -1,8 +1,8 @@
 # Makefile for FastDMG
 
-all: build
+release: clean build size
 
-build:
+build_unsigned:
 	mkdir -p products
 	xattr -w com.apple.xcode.CreatedByBuildSystem true products
 	xcodebuild  -parallelizeTargets \
@@ -13,8 +13,22 @@ build:
 	            CODE_SIGN_IDENTITY="" \
 	            CODE_SIGNING_REQUIRED=NO \
 	            clean build
+
+build:
+	mkdir -p products
+	xattr -w com.apple.xcode.CreatedByBuildSystem true products
+	xcodebuild  -parallelizeTargets \
+	            -project "FastDMG.xcodeproj" \
+	            -target "FastDMG" \
+	            -configuration "Release" \
+	            CONFIGURATION_BUILD_DIR="products" \
+	            clean build
+
+size:
+	@echo "App size:"
+	@du -hs products/FastDMG.app
 	@echo "Binary size:"
-	@stat -f %z products/FastDMG.app/Contents/MacOS/*
+	@du -hs products/FastDMG.app/Contents/MacOS/*
 
 clean:
 	xattr -w com.apple.xcode.CreatedByBuildSystem true products
