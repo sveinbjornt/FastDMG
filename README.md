@@ -1,3 +1,4 @@
+[![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)]()
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
 [![Release](https://shields.io/github/v/release/sveinbjornt/fastdmg?display_name=tag)]()
@@ -28,7 +29,7 @@ FastDMG is a very minimal wrapper around the [ `hdiutil`](https://web.archive.or
 
 ## Download
 
-*  **[⇩ Download FastDMG 1.0.3](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.4 MB, Universal ARM/Intel 64-bit, 10.13 or later)
+*  **[⬇ Download FastDMG 1.0.3](https://sveinbjorn.org/files/software/FastDMG.zip)** (~1.3 MB, Universal ARM/Intel 64-bit, 10.13 or later, Developer ID signed and notarized by Apple)
 
 If you need to run it on macOS 10.9-10.12, [version 1.0.2](https://sveinbjorn.org/files/software/fastdmg/) continues to work just fine.
 
@@ -54,13 +55,14 @@ open /Applications/FastDMG.app
 * Select FastDMG under the menu item "Open with:"
 * Press "Change All..."
 
-FastDMG will then take care of mounting  `.dmg` disk images when you open them in the Finder. You can do the same for `.iso`,  `.toast` and any other disk image formats supported by FastDMG.
+FastDMG will then take care of mounting  `.dmg` disk images when you open them in the Finder. 
+You can do the same for `.iso`, `.toast` and any other disk image formats supported by FastDMG.
 
 ## Version History
 
 ### 1.0.3 - 20/05/2025
 
-* App is now Developer ID signed and notarized by Apple
+* App is now notarized by Apple
 * New application icon by maxtron95
 
 ### 1.0.2 - 28/11/2020
