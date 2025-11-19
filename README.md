@@ -25,7 +25,7 @@ FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other dis
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BDT58J7HYKAEE"><img align="right" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donate_LG.gif" style="float:right; margin-left: 20px;"></a>
 
-FastDMG is a very minimal wrapper around the [ `hdiutil`](https://web.archive.org/web/20170506155736/https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. I've used it for many years and it works really well. If you like it, feel free to [make a donation](https://sveinbjorn.org/donations).
+FastDMG is a very minimal wrapper around the [ `hdiutil`](https://web.archive.org/web/20170506155736/https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. I've used it for many years and it works really well. If you like it, feel free to [**make a donation**](https://sveinbjorn.org/donations).
 
 ## Download
 
@@ -78,9 +78,9 @@ You can do the same for `.iso`, `.toast` and any other disk image formats suppor
 
 * First release as native non-[Platypus](https://sveinbjorn.org/platypus) app
 
-## BSD License 
+## BSD License
 
-Copyright (C) 2012-2025 Sveinbjorn Thordarson &lt;<a href="mailto:sveinbjorn@sveinbjorn.org">sveinbjorn@sveinbjorn.org</a>&gt;
+Copyright (C) 2012-2025 [Sveinbjorn Thordarson](sveinbjorn@sveinbjorn.org)
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
