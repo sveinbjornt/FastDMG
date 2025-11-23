@@ -39,11 +39,16 @@
     #define DLog(...)
 #endif
 
+// Sets max wait time after mounting before opening in Finder
+#define MAX_MOUNT_TIME_BEFORE_OPEN 1000000 * 2 /* milliseconds, so 2.0 sec */
+// Polling interval for checking for mounted image before opening in Finder
+#define MOUNT_TIME_POLL_INTERVAL 50000 /* milliseconds, so 0.05 sec */
+
 @interface FastDMGAppDelegate ()
 {    
     BOOL hasReceivedOpenFileEvent;
     BOOL inForeground;
-    BOOL numActiveTasks;
+    NSUInteger numActiveTasks;
     
     FastDMGWindowController *windowController;
 }
@@ -224,8 +229,8 @@
             
             if (mountPoint) {
                 // Make sure volume has been mounted at mount point
-                int polling_ms = 50000; // 0.05 sec
-                int max = 1000000/polling_ms;
+                int polling_ms = MOUNT_TIME_POLL_INTERVAL;
+                int max = MAX_MOUNT_TIME_BEFORE_OPEN/polling_ms;
                 int cnt = 0;
                 // Give it max 1 sec to mount
                 while (cnt < max && [[NSFileManager defaultManager] fileExistsAtPath:mountPoint] == NO) {
