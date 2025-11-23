@@ -1,8 +1,8 @@
-[![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)]()
+[![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)](https://en.wikipedia.org/wiki/MacOS)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Language](https://img.shields.io/badge/language-objective--c-lightgrey)]()
-[![Release](https://shields.io/github/v/release/sveinbjornt/fastdmg?display_name=tag)]()
-[![Build](https://github.com/sveinbjornt/fastdmg/actions/workflows/macos.yml/badge.svg)]()
+[![Language](https://img.shields.io/badge/language-objective--c-lightgrey)](https://en.wikipedia.org/wiki/Objective-C)
+[![Release](https://shields.io/github/v/release/sveinbjornt/fastdmg?display_name=tag)](https://github.com/sveinbjornt/FastDMG/releases)
+[![Build](https://github.com/sveinbjornt/fastdmg/actions/workflows/macos.yml/badge.svg)](https://github.com/sveinbjornt/FastDMG/actions)
 
 <img src="Icon/fastdmg.png" width="256" height="256" align="right" style="float: right; margin-left: 30px;">
 
@@ -20,12 +20,12 @@ FastDMG is a macOS utility to quickly and efficiently mount `.dmg` and other dis
 * Displays no windows or menus and stays out of your way
 * Multithreaded and can concurrently mount several images
 * Disk image document icons continue to look the same
-* Handles all disk image types supported by DiskImageMounter (dmg, iso, toast, etc.)
+* Handles all disk image types supported by DiskImageMounter (`.dmg`, `.iso`, `.toast`, etc.)
 * Very fast native app written in Objective-C/Cocoa
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BDT58J7HYKAEE"><img align="right" src="https://www.paypalobjects.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_donate_LG.gif" style="float:right; margin-left: 20px;"></a>
 
-FastDMG is a very minimal wrapper around the [ `hdiutil`](https://web.archive.org/web/20170506155736/https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. I've used it for many years and it works really well. If you like it, feel free to [**make a donation**](https://sveinbjorn.org/donations).
+FastDMG is a very minimal wrapper around the [`hdiutil`](https://web.archive.org/web/20170506155736/https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/hdiutil.1.html) command line tool that ships with macOS. It therefore uses Apple's private DiskImages framework indirectly. It is free, open source software. I've used it for many years and it works really well. If you like it, feel free to [**make a donation**](https://sveinbjorn.org/donations).
 
 ## Download
 
