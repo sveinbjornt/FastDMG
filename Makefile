@@ -3,8 +3,8 @@
 release: clean build size
 
 build_unsigned:
-	mkdir -p products
-	xattr -w com.apple.xcode.CreatedByBuildSystem true products
+	@mkdir -p products
+	@xattr -w com.apple.xcode.CreatedByBuildSystem true products
 	xcodebuild  -parallelizeTargets \
 	            -project "FastDMG.xcodeproj" \
 	            -target "FastDMG" \
@@ -15,8 +15,8 @@ build_unsigned:
 	            clean build
 
 build:
-	mkdir -p products
-	xattr -w com.apple.xcode.CreatedByBuildSystem true products
+	@mkdir -p products
+	@xattr -w com.apple.xcode.CreatedByBuildSystem true products
 	xcodebuild  -parallelizeTargets \
 	            -project "FastDMG.xcodeproj" \
 	            -target "FastDMG" \
@@ -31,6 +31,6 @@ size:
 	@du -hs products/FastDMG.app/Contents/MacOS/*
 
 clean:
-	xattr -w com.apple.xcode.CreatedByBuildSystem true products
+	@xattr -w com.apple.xcode.CreatedByBuildSystem true products
 	xcodebuild -project "FastDMG.xcodeproj" clean
 	rm -rf products/* 2> /dev/null
