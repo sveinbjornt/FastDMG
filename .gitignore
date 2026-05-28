@@ -18,3 +18,5 @@ xcuserdata
 *.xcworkspace
 dsa_priv.pem
 .xcbkptlist
+.DS_Store
+

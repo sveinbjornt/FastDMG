@@ -40,9 +40,11 @@
 #endif
 
 // Sets max wait time after mounting before opening in Finder
-#define MAX_MOUNT_TIME_BEFORE_OPEN 1000000 * 2 /* milliseconds, so 2.0 sec */
+#define MAX_MOUNT_TIME_BEFORE_OPEN 1000000 * 2 /* microseconds, so 2.0 sec */
 // Polling interval for checking for mounted image before opening in Finder
-#define MOUNT_TIME_POLL_INTERVAL 50000 /* milliseconds, so 0.05 sec */
+#define MOUNT_TIME_POLL_INTERVAL 50000 /* microseconds, so 0.05 sec */
+
+static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotification";
 
 @interface FastDMGAppDelegate ()
 {    
@@ -77,7 +79,7 @@
     // Start listening for task done notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(taskDone:)
-                                                 name:@"FastDMGTaskDoneNotification"
+                                                 name:FastDMGTaskDoneNotification
                                                object:nil];
 }
 
@@ -200,7 +202,7 @@
         NSFileHandle *inputHandle = [task.standardInput fileHandleForWriting];
         // Auto-accept EULAs by feeding 'Y' into STDIN
         [inputHandle writeData:[@"Y\n" dataUsingEncoding:NSUTF8StringEncoding]];
-
+        
         // STDOUT
         // We're only interested in output if we need
         // to show image contents in the Finder
@@ -239,7 +241,7 @@
                     DLog(@"Sleeping, no file at %@", mountPoint);
                 }
                 
-                if (cnt == max-1) {
+                if (cnt >= max) {
                     DLog(@"Mount point '%@' doesn't exist", mountPoint);
                 } else {
                     // Show in Finder
@@ -258,7 +260,8 @@
                 [self handleFailure:diskImagePath];
             }
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"FastDMGTaskDoneNotification" object:diskImagePath];
+            [[NSNotificationCenter defaultCenter] postNotificationName:FastDMGTaskDoneNotification
+                                                                object:diskImagePath];
             
             DLog(@"Finished processing %@", diskImagePath);
         });
@@ -302,7 +305,7 @@
             return dict[@"mount-point"];
         }
     }
-
+    
     return nil;
 }
 
@@ -328,7 +331,7 @@
     NSString *msg = [NSString stringWithFormat:@"FastDMG failed to mount \
 the disk image “%@”. Would you like to try using Apple's DiskImageMounter?", [filePath lastPathComponent]];
     [alert setInformativeText:msg];
-
+    
     if ([alert runModal] == NSAlertFirstButtonReturn) {
         DLog(@"Opening '%@' with DiskImageMounter", filePath);
         [[NSWorkspace sharedWorkspace] openFile:filePath withApplication:@"DiskImageMounter"];
