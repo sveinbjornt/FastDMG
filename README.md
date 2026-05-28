@@ -80,7 +80,7 @@ You can do the same for `.iso`, `.toast` and any other disk image formats suppor
 
 ## BSD License
 
-Copyright (C) 2012-2025 [Sveinbjorn Thordarson](sveinbjorn@sveinbjorn.org)
+Copyright (C) 2012-2026 [Sveinbjorn Thordarson](sveinbjorn@sveinbjorn.org)
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
