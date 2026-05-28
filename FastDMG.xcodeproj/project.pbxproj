@@ -14,7 +14,6 @@
 		F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AC10020ACDB4F0086DF1D /* MainMenu.xib */; };
 		F45AC10520ACDB4F0086DF1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F45AC10420ACDB4F0086DF1D /* main.m */; };
 		F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F49A991720ADD90F0064B9A4 /* Credits.rtf */; };
-		F4E2D4CE29268E2C00BDA386 /* diskimage.icns in Resources */ = {isa = PBXBuildFile; fileRef = F4E2D4CD29268E2C00BDA386 /* diskimage.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,6 @@
 		F49A991720ADD90F0064B9A4 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		F49A991B20ADEAC30064B9A4 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F49A991C20ADEAC30064B9A4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F4E2D4CD29268E2C00BDA386 /* diskimage.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = diskimage.icns; sourceTree = "<group>"; };
 		F4FC1A062239E5D700CC1F6A /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +109,6 @@
 				F42C833F20AF048700E95DD4 /* MainWindow.xib */,
 				F49A991720ADD90F0064B9A4 /* Credits.rtf */,
 				F45AC10320ACDB4F0086DF1D /* Info.plist */,
-				F4E2D4CD29268E2C00BDA386 /* diskimage.icns */,
 				F416C1F32DDCC9FE00B710B6 /* fastdmg.icns */,
 			);
 			path = FastDMG;
@@ -145,7 +142,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 2650;
 				ORGANIZATIONNAME = "Sveinbjorn Thordarson";
 				TargetAttributes = {
 					F45AC0F720ACDB4E0086DF1D = {
@@ -177,7 +174,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F42C834120AF048700E95DD4 /* MainWindow.xib in Resources */,
-				F4E2D4CE29268E2C00BDA386 /* diskimage.icns in Resources */,
 				F49A991820ADD90F0064B9A4 /* Credits.rtf in Resources */,
 				F45AC10220ACDB4F0086DF1D /* MainMenu.xib in Resources */,
 				F416C1F42DDCC9FE00B710B6 /* fastdmg.icns in Resources */,

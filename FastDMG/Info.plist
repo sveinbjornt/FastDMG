@@ -15,7 +15,9 @@
 				<string>img</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>NDIF Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -27,6 +29,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -34,7 +38,9 @@
 				<string>imgpart</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>NDIF Disk Image Segment</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -43,6 +49,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -50,11 +58,15 @@
 				<string>smi</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Self Mounting Image</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -63,7 +75,9 @@
 				<string>udif</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -72,6 +86,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -81,7 +97,9 @@
 				<string>cdr</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>DVD/CD-R Master Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -91,6 +109,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -98,7 +118,9 @@
 				<string>dmgpart</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Disk Image Segment</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -107,6 +129,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -115,7 +139,9 @@
 				<string>diskcopy42</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Disk Copy 4.2 Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -124,6 +150,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -131,7 +159,9 @@
 				<string>dart</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>DART Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -148,10 +178,14 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Raw Disk Image</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -162,10 +196,14 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>PC Drive Container</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -174,6 +212,8 @@
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -181,11 +221,15 @@
 				<string>iso</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>ISO Disk Image</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -193,11 +237,15 @@
 				<string>sparseimage</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Sparse Disk Image</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -205,11 +253,15 @@
 				<string>sparsebundle</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>diskimage.icns</string>
+			<string></string>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<true/>
 			<key>CFBundleTypeName</key>
 			<string>Sparse Disk Image Bundle</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
