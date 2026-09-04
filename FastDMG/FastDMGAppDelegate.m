@@ -44,10 +44,11 @@
 // Polling interval for checking for mounted image before opening in Finder
 #define MOUNT_TIME_POLL_INTERVAL 50000 /* microseconds, so 0.05 sec */
 
+static NSString * const hdiutilPath = @"/usr/bin/hdiutil";
 static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotification";
 
 @interface FastDMGAppDelegate ()
-{    
+{
     BOOL hasReceivedOpenFileEvent;
     BOOL inForeground;
     NSUInteger numActiveTasks;
@@ -118,7 +119,7 @@ static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotificat
     // We only become a foreground application if the
     // application wasn't launched by opening a file.
     // In that case, we show FastDMG Settings window.
-    [self performSelector:@selector(showPrefs) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(showSettings) withObject:nil afterDelay:0.5];
 }
 
 - (BOOL)application:(NSApplication *)app openFile:(NSString *)path {
@@ -129,12 +130,11 @@ static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotificat
     return YES;
 }
 
-- (void)showPrefs {
-    // Show Preferences window
+- (void)showSettings {
+    // Show Settings window
     if (hasReceivedOpenFileEvent == NO) {
         if (!inForeground) {
             inForeground = [self transformToForeground];
-            
             // This slight delay is important to let the UI update after the transformation
             [self performSelector:@selector(showAndActivateWindow) withObject:nil afterDelay:0.1];
         } else {
@@ -177,7 +177,15 @@ static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotificat
 }
 
 - (void)mountDiskImage:(NSString *)diskImagePath {
+    // Make sure hdiutil is present on system. The tool is officially deprecated as
+    // of macOS 27 but likely to remain bundled with the OS for many years to come.
+    if ([[NSFileManager defaultManager] fileExistsAtPath:hdiutilPath] == NO) {
+        [self handleMissingHdiutil:diskImagePath];
+        [NSApp terminate:self];
+        return;
+    }
     
+    // It's present. Let's go.
     numActiveTasks += 1;
     
     // Set task off in high priority background thread
@@ -185,7 +193,7 @@ static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotificat
         DLog(@"Launching task: %@", diskImagePath);
         
         NSTask *task = [NSTask new];
-        task.launchPath = @"/usr/bin/hdiutil"; // present on all macOS systems
+        task.launchPath = hdiutilPath;
         
         // See man hdiutil for details
         task.arguments = @[@"attach",
@@ -234,7 +242,7 @@ static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotificat
                 int polling_ms = MOUNT_TIME_POLL_INTERVAL;
                 int max = MAX_MOUNT_TIME_BEFORE_OPEN/polling_ms;
                 int cnt = 0;
-                // Give it max 1 sec to mount
+                // Give it time to mount
                 while (cnt < max && [[NSFileManager defaultManager] fileExistsAtPath:mountPoint] == NO) {
                     usleep(polling_ms);
                     cnt++;
@@ -262,7 +270,6 @@ static NSString * const FastDMGTaskDoneNotification = @"FastDMGTaskDoneNotificat
             
             [[NSNotificationCenter defaultCenter] postNotificationName:FastDMGTaskDoneNotification
                                                                 object:diskImagePath];
-            
             DLog(@"Finished processing %@", diskImagePath);
         });
         
@@ -334,7 +341,32 @@ the disk image “%@”. Would you like to try using Apple's DiskImageMounter?",
     
     if ([alert runModal] == NSAlertFirstButtonReturn) {
         DLog(@"Opening '%@' with DiskImageMounter", filePath);
-        [[NSWorkspace sharedWorkspace] openFile:filePath withApplication:@"DiskImageMounter"];
+        [[NSWorkspace sharedWorkspace] openFile:filePath
+                                withApplication:@"DiskImageMounter"];
+    }
+}
+
+- (void)handleMissingHdiutil:(NSString *)filePath {
+    DLog(@"hdiutil not present in this version of macOS");
+    
+    NSBeep();
+    [NSApp activateIgnoringOtherApps:YES];
+    
+    // Show alert notifying user that hdiutil is gone
+    NSAlert *alert = [NSAlert new];
+    [alert addButtonWithTitle:@"Try DiskImageMounter"];
+    [alert addButtonWithTitle:@"Abort"];
+    [alert setAlertStyle:NSAlertStyleWarning];
+    [alert setMessageText:@"Unable to mount disk image"];
+    
+    NSString *msg = [NSString stringWithFormat:@"FastDMG does not work on \
+this system because '%@' is missing.", hdiutilPath];
+    [alert setInformativeText:msg];
+    
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
+        DLog(@"Opening '%@' with DiskImageMounter", filePath);
+        [[NSWorkspace sharedWorkspace] openFile:filePath
+                                withApplication:@"DiskImageMounter"];
     }
 }
 
